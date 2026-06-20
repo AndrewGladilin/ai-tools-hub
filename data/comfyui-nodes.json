@@ -1,0 +1,407 @@
+[
+  {
+    "id": "load-checkpoint",
+    "name": "Load Checkpoint",
+    "name_ru": "Загрузить чекпоинт",
+    "category": "loaders",
+    "emoji": "📦",
+    "what_it_does": "Загружает основную модель (чекпоинт) — это главный «мозг» генерации. Именно от выбора модели зависит стиль: реализм, аниме, концепт-арт и т.д.",
+    "inputs": [],
+    "outputs": [
+      { "name": "MODEL", "type": "model", "desc": "Нейросеть для генерации — подключается к сэмплеру" },
+      { "name": "CLIP", "type": "clip", "desc": "Обработчик текста — подключается к нодам с промптом" },
+      { "name": "VAE", "type": "vae", "desc": "Кодировщик изображений — подключается к VAE Decode" }
+    ],
+    "params": [
+      { "name": "ckpt_name", "desc": "Выбор файла модели (.safetensors или .ckpt) из папки models/checkpoints" }
+    ]
+  },
+  {
+    "id": "clip-text-encode",
+    "name": "CLIP Text Encode",
+    "name_ru": "Ввод текстового промпта",
+    "category": "conditioning",
+    "emoji": "✍️",
+    "what_it_does": "Преобразует текстовый промпт в формат, который понимает нейросеть. Нужны две такие ноды: одна для позитивного промпта (что хочешь увидеть), другая — для негативного (чего не хочешь).",
+    "inputs": [
+      { "name": "clip", "type": "clip", "desc": "Обработчик текста из Load Checkpoint" }
+    ],
+    "outputs": [
+      { "name": "CONDITIONING", "type": "conditioning", "desc": "Закодированный промпт — подключается к KSampler" }
+    ],
+    "params": [
+      { "name": "text", "desc": "Текст промпта. Можно использовать запятые между описаниями, скобки для усиления (слово) и ослабления [слово]" }
+    ]
+  },
+  {
+    "id": "ksampler",
+    "name": "KSampler",
+    "name_ru": "Сэмплер (генератор)",
+    "category": "samplers",
+    "emoji": "⚡",
+    "what_it_does": "Главная нода генерации. Берёт шумовое изображение и постепенно «убирает шум», ориентируясь на промпт. Именно здесь происходит вся магия. Настройки здесь сильнее всего влияют на результат.",
+    "inputs": [
+      { "name": "model", "type": "model", "desc": "Нейросеть из Load Checkpoint" },
+      { "name": "positive", "type": "conditioning", "desc": "Позитивный промпт — что должно быть на изображении" },
+      { "name": "negative", "type": "conditioning", "desc": "Негативный промпт — чего не должно быть" },
+      { "name": "latent_image", "type": "latent", "desc": "Начальное изображение (шум) из Empty Latent Image" }
+    ],
+    "outputs": [
+      { "name": "LATENT", "type": "latent", "desc": "Сгенерированное изображение в латентном пространстве — нужно декодировать через VAE Decode" }
+    ],
+    "params": [
+      { "name": "seed", "desc": "Зерно случайности. Одинаковый seed при тех же настройках даст одинаковый результат. Нажми 🎲 чтобы случайный" },
+      { "name": "steps", "desc": "Количество шагов генерации (10–50). Больше шагов = лучше качество, но дольше. Обычно хватает 20–30" },
+      { "name": "cfg", "desc": "Сила следования промпту (1–20). Низкое значение (1–5) — свободная интерпретация, высокое (10+) — строго по тексту. Оптимально: 6–8" },
+      { "name": "sampler_name", "desc": "Алгоритм генерации. euler и dpm++ 2m — популярные универсальные варианты" },
+      { "name": "scheduler", "desc": "Расписание убывания шума. karras обычно даёт мягкий результат, normal — стандартный" },
+      { "name": "denoise", "desc": "Сила изменения (0–1). При 1.0 — полная генерация с нуля. При 0.5 — сохранит ~половину оригинала. Используется в img2img" }
+    ]
+  },
+  {
+    "id": "empty-latent-image",
+    "name": "Empty Latent Image",
+    "name_ru": "Пустое латентное изображение",
+    "category": "latent",
+    "emoji": "⬜",
+    "what_it_does": "Создаёт «холст» — пустое зашумлённое пространство, с которого начинается генерация. Здесь задаёшь размер будущего изображения. Это нода для txt2img (генерация из текста).",
+    "inputs": [],
+    "outputs": [
+      { "name": "LATENT", "type": "latent", "desc": "Пустой латентный тензор — подаётся в KSampler" }
+    ],
+    "params": [
+      { "name": "width", "desc": "Ширина в пикселях. Лучше использовать кратные 64 значения: 512, 768, 1024" },
+      { "name": "height", "desc": "Высота в пикселях. Для портрета: 512×768, для пейзажа: 768×512, для квадрата: 512×512" },
+      { "name": "batch_size", "desc": "Сколько изображений генерировать за раз. Начни с 1, увеличивай если видеопамяти достаточно" }
+    ]
+  },
+  {
+    "id": "vae-decode",
+    "name": "VAE Decode",
+    "name_ru": "Декодировать изображение",
+    "category": "latent",
+    "emoji": "🔓",
+    "what_it_does": "Переводит результат генерации из «латентного пространства» (математический формат модели) в обычное изображение, которое можно увидеть и сохранить.",
+    "inputs": [
+      { "name": "samples", "type": "latent", "desc": "Результат из KSampler" },
+      { "name": "vae", "type": "vae", "desc": "VAE из Load Checkpoint (или отдельный Load VAE)" }
+    ],
+    "outputs": [
+      { "name": "IMAGE", "type": "image", "desc": "Готовое изображение — подключается к Save Image или Preview Image" }
+    ],
+    "params": []
+  },
+  {
+    "id": "vae-encode",
+    "name": "VAE Encode",
+    "name_ru": "Закодировать изображение",
+    "category": "latent",
+    "emoji": "🔒",
+    "what_it_does": "Обратная операция — переводит обычное изображение в латентное пространство. Нужна для img2img (изменение существующего изображения) и inpainting.",
+    "inputs": [
+      { "name": "pixels", "type": "image", "desc": "Исходное изображение из Load Image" },
+      { "name": "vae", "type": "vae", "desc": "VAE из Load Checkpoint" }
+    ],
+    "outputs": [
+      { "name": "LATENT", "type": "latent", "desc": "Закодированное изображение — подаётся в KSampler вместо Empty Latent Image" }
+    ],
+    "params": []
+  },
+  {
+    "id": "load-image",
+    "name": "Load Image",
+    "name_ru": "Загрузить изображение",
+    "category": "image",
+    "emoji": "🖼️",
+    "what_it_does": "Загружает изображение с компьютера в воркфлоу. Нужна для img2img, inpainting, использования референса для ControlNet.",
+    "inputs": [],
+    "outputs": [
+      { "name": "IMAGE", "type": "image", "desc": "Загруженное изображение" },
+      { "name": "MASK", "type": "mask", "desc": "Маска, если изображение содержит альфа-канал (прозрачные области)" }
+    ],
+    "params": [
+      { "name": "image", "desc": "Выбор файла. Можно перетащить прямо в интерфейс ComfyUI или выбрать из списка загруженных" },
+      { "name": "upload", "desc": "Кнопка для загрузки нового изображения с компьютера" }
+    ]
+  },
+  {
+    "id": "save-image",
+    "name": "Save Image",
+    "name_ru": "Сохранить изображение",
+    "category": "image",
+    "emoji": "💾",
+    "what_it_does": "Сохраняет готовое изображение на диск в папку output. Обычно ставится в конце воркфлоу.",
+    "inputs": [
+      { "name": "images", "type": "image", "desc": "Изображение для сохранения" }
+    ],
+    "outputs": [],
+    "params": [
+      { "name": "filename_prefix", "desc": "Префикс имени файла. Итоговый файл будет называться prefix_00001.png и т.д." }
+    ]
+  },
+  {
+    "id": "preview-image",
+    "name": "Preview Image",
+    "name_ru": "Предпросмотр изображения",
+    "category": "image",
+    "emoji": "👁️",
+    "what_it_does": "Показывает изображение прямо в интерфейсе ComfyUI без сохранения на диск. Удобно для промежуточных проверок в длинных воркфлоу.",
+    "inputs": [
+      { "name": "images", "type": "image", "desc": "Изображение для отображения" }
+    ],
+    "outputs": [],
+    "params": []
+  },
+  {
+    "id": "image-scale",
+    "name": "Image Scale",
+    "name_ru": "Масштабировать изображение",
+    "category": "image",
+    "emoji": "🔍",
+    "what_it_does": "Изменяет размер изображения. Используется перед отправкой в модель или после генерации для увеличения/уменьшения.",
+    "inputs": [
+      { "name": "image", "type": "image", "desc": "Исходное изображение" }
+    ],
+    "outputs": [
+      { "name": "IMAGE", "type": "image", "desc": "Масштабированное изображение" }
+    ],
+    "params": [
+      { "name": "upscale_method", "desc": "Алгоритм масштабирования: nearest-exact (чёткий пиксель-арт), bilinear (мягкий), lanczos (качественное увеличение)" },
+      { "name": "width", "desc": "Новая ширина в пикселях" },
+      { "name": "height", "desc": "Новая высота в пикселях" },
+      { "name": "crop", "desc": "disabled — не обрезать, center — обрезать по центру до нужного размера" }
+    ]
+  },
+  {
+    "id": "load-vae",
+    "name": "Load VAE",
+    "name_ru": "Загрузить VAE",
+    "category": "loaders",
+    "emoji": "🎨",
+    "what_it_does": "Загружает отдельный VAE — компонент, отвечающий за финальную «расшифровку» изображения. Иногда встроенный в чекпоинт VAE хуже, чем специализированный (например, для SDXL рекомендуется sdxl.vae.safetensors).",
+    "inputs": [],
+    "outputs": [
+      { "name": "VAE", "type": "vae", "desc": "Заменяет VAE из Load Checkpoint" }
+    ],
+    "params": [
+      { "name": "vae_name", "desc": "Выбор файла VAE из папки models/vae" }
+    ]
+  },
+  {
+    "id": "load-lora",
+    "name": "Load LoRA",
+    "name_ru": "Загрузить LoRA",
+    "category": "loaders",
+    "emoji": "🔧",
+    "what_it_does": "Загружает LoRA — дополнительный модуль, который модифицирует поведение модели. LoRA обучают на конкретном стиле, персонаже, объекте. Можно стекировать несколько LoRA одновременно.",
+    "inputs": [
+      { "name": "model", "type": "model", "desc": "Модель из Load Checkpoint" },
+      { "name": "clip", "type": "clip", "desc": "CLIP из Load Checkpoint" }
+    ],
+    "outputs": [
+      { "name": "MODEL", "type": "model", "desc": "Модель с применённой LoRA" },
+      { "name": "CLIP", "type": "clip", "desc": "CLIP с применённой LoRA" }
+    ],
+    "params": [
+      { "name": "lora_name", "desc": "Выбор файла LoRA из папки models/loras" },
+      { "name": "strength_model", "desc": "Сила влияния на генерацию (0–2). 1.0 — стандартно, выше — сильнее эффект LoRA" },
+      { "name": "strength_clip", "desc": "Сила влияния на обработку текста (0–2). Обычно ставят то же значение что и strength_model" }
+    ]
+  },
+  {
+    "id": "upscale-model-loader",
+    "name": "Load Upscale Model",
+    "name_ru": "Загрузить модель апскейла",
+    "category": "upscale",
+    "emoji": "🔭",
+    "what_it_does": "Загружает специализированную нейросеть для увеличения разрешения изображения (апскейлинг). Такие модели (RealESRGAN, 4x-UltraSharp и др.) дают намного лучший результат, чем обычное масштабирование.",
+    "inputs": [],
+    "outputs": [
+      { "name": "UPSCALE_MODEL", "type": "upscale_model", "desc": "Модель апскейла — подключается к Image Upscale with Model" }
+    ],
+    "params": [
+      { "name": "model_name", "desc": "Выбор файла модели из папки models/upscale_models. Популярные: 4x-UltraSharp.pth, RealESRGAN_x4plus.pth" }
+    ]
+  },
+  {
+    "id": "image-upscale-with-model",
+    "name": "Image Upscale with Model",
+    "name_ru": "Увеличить изображение нейросетью",
+    "category": "upscale",
+    "emoji": "🔬",
+    "what_it_does": "Увеличивает изображение в 2–4× с помощью нейросетевой модели апскейла. Сохраняет детали и добавляет новые — намного лучше обычного увеличения.",
+    "inputs": [
+      { "name": "upscale_model", "type": "upscale_model", "desc": "Модель из Load Upscale Model" },
+      { "name": "image", "type": "image", "desc": "Изображение для увеличения" }
+    ],
+    "outputs": [
+      { "name": "IMAGE", "type": "image", "desc": "Увеличенное изображение" }
+    ],
+    "params": []
+  },
+  {
+    "id": "latent-upscale",
+    "name": "Latent Upscale",
+    "name_ru": "Увеличить в латентном пространстве",
+    "category": "latent",
+    "emoji": "📐",
+    "what_it_does": "Увеличивает изображение прямо в латентном пространстве (до декодирования VAE). Используется в технике «hires fix» — генерация в малом разрешении, потом апскейл и ещё один проход KSampler для прорисовки деталей.",
+    "inputs": [
+      { "name": "samples", "type": "latent", "desc": "Латентное изображение из KSampler" }
+    ],
+    "outputs": [
+      { "name": "LATENT", "type": "latent", "desc": "Увеличенный латент — подаётся в ещё один KSampler" }
+    ],
+    "params": [
+      { "name": "upscale_method", "desc": "Алгоритм: bilinear, nearest-exact, area. Для hires fix обычно bilinear" },
+      { "name": "width", "desc": "Целевая ширина" },
+      { "name": "height", "desc": "Целевая высота" },
+      { "name": "crop", "desc": "Обрезка: disabled или center" }
+    ]
+  },
+  {
+    "id": "conditioning-combine",
+    "name": "Conditioning Combine",
+    "name_ru": "Объединить кондиционирования",
+    "category": "conditioning",
+    "emoji": "🔀",
+    "what_it_does": "Объединяет несколько кондиционирований (промптов) в один. Используется, когда хочешь применить и основной промпт, и ControlNet-подсказку одновременно.",
+    "inputs": [
+      { "name": "conditioning_1", "type": "conditioning", "desc": "Первый промпт или кондиционирование" },
+      { "name": "conditioning_2", "type": "conditioning", "desc": "Второй промпт или кондиционирование" }
+    ],
+    "outputs": [
+      { "name": "CONDITIONING", "type": "conditioning", "desc": "Объединённый результат" }
+    ],
+    "params": []
+  },
+  {
+    "id": "controlnet-loader",
+    "name": "Load ControlNet Model",
+    "name_ru": "Загрузить ControlNet",
+    "category": "controlnet",
+    "emoji": "🕹️",
+    "what_it_does": "Загружает модель ControlNet — инструмент для точного управления композицией, позой, контурами. Каждый тип ControlNet заточен под свою задачу: Canny (контуры), Pose (поза человека), Depth (глубина) и т.д.",
+    "inputs": [],
+    "outputs": [
+      { "name": "CONTROL_NET", "type": "control_net", "desc": "Загруженная модель ControlNet" }
+    ],
+    "params": [
+      { "name": "control_net_name", "desc": "Выбор файла из models/controlnet. Тип в названии скажет за что отвечает: canny, openpose, depth, scribble, inpaint..." }
+    ]
+  },
+  {
+    "id": "controlnet-apply",
+    "name": "Apply ControlNet",
+    "name_ru": "Применить ControlNet",
+    "category": "controlnet",
+    "emoji": "🎛️",
+    "what_it_does": "Подключает ControlNet к процессу генерации. Подаёшь референсное изображение (контуры, карту глубины, позу) — и модель генерирует с учётом этой структуры.",
+    "inputs": [
+      { "name": "conditioning", "type": "conditioning", "desc": "Промпт из CLIP Text Encode" },
+      { "name": "control_net", "type": "control_net", "desc": "Модель из Load ControlNet Model" },
+      { "name": "image", "type": "image", "desc": "Референсное изображение (маска, контуры, поза)" }
+    ],
+    "outputs": [
+      { "name": "CONDITIONING", "type": "conditioning", "desc": "Промпт с влиянием ControlNet — подаётся в KSampler" }
+    ],
+    "params": [
+      { "name": "strength", "desc": "Сила влияния ControlNet (0–2). При 1.0 модель строго следует референсу, при 0.3 — лишь ориентируется" },
+      { "name": "start_percent", "desc": "С какого шага начинает действовать ControlNet (0 = с самого начала)" },
+      { "name": "end_percent", "desc": "На каком шаге перестаёт действовать (1 = до конца). Ограничение диапазона может улучшить результат" }
+    ]
+  },
+  {
+    "id": "note",
+    "name": "Note",
+    "name_ru": "Заметка",
+    "category": "utils",
+    "emoji": "📝",
+    "what_it_does": "Текстовая заметка прямо в воркфлоу. Не влияет на генерацию — нужна для пояснений: что делает этот блок, какие настройки и зачем.",
+    "inputs": [],
+    "outputs": [],
+    "params": [
+      { "name": "text", "desc": "Любой текст. Используй для документирования своих воркфлоу" }
+    ]
+  },
+  {
+    "id": "primitive",
+    "name": "Primitive",
+    "name_ru": "Примитив (значение)",
+    "category": "utils",
+    "emoji": "🔢",
+    "what_it_does": "Хранит одно значение (число, текст, булеан) и передаёт его сразу в несколько нод. Удобно, когда нужно изменить один параметр в одном месте — и он поменяется везде.",
+    "inputs": [],
+    "outputs": [
+      { "name": "value", "type": "any", "desc": "Значение, которое передаётся в подключённые параметры" }
+    ],
+    "params": [
+      { "name": "value", "desc": "Само значение: число, строка или true/false" }
+    ]
+  },
+  {
+    "id": "reroute",
+    "name": "Reroute",
+    "name_ru": "Перенаправление",
+    "category": "utils",
+    "emoji": "↪️",
+    "what_it_does": "Маленькая точка для перенаправления соединений. Помогает навести порядок в сложных воркфлоу — прокладывает «провода» аккуратно без длинных пересекающихся линий.",
+    "inputs": [
+      { "name": "*", "type": "any", "desc": "Любой тип данных" }
+    ],
+    "outputs": [
+      { "name": "*", "type": "any", "desc": "То же значение" }
+    ],
+    "params": []
+  },
+  {
+    "id": "ksampler-advanced",
+    "name": "KSampler Advanced",
+    "name_ru": "Расширенный сэмплер",
+    "category": "samplers",
+    "emoji": "⚙️",
+    "what_it_does": "Расширенная версия KSampler с дополнительными настройками. Позволяет задать начальный и конечный шаг — нужно для двухэтапных воркфлоу (например, hires fix или применение ControlNet только на части шагов).",
+    "inputs": [
+      { "name": "model", "type": "model", "desc": "Нейросеть из Load Checkpoint" },
+      { "name": "positive", "type": "conditioning", "desc": "Позитивный промпт" },
+      { "name": "negative", "type": "conditioning", "desc": "Негативный промпт" },
+      { "name": "latent_image", "type": "latent", "desc": "Начальное латентное изображение" }
+    ],
+    "outputs": [
+      { "name": "LATENT", "type": "latent", "desc": "Результат генерации" }
+    ],
+    "params": [
+      { "name": "noise_seed", "desc": "Зерно случайности" },
+      { "name": "steps", "desc": "Общее количество шагов" },
+      { "name": "cfg", "desc": "Сила следования промпту" },
+      { "name": "sampler_name", "desc": "Алгоритм сэмплинга" },
+      { "name": "scheduler", "desc": "Расписание шума" },
+      { "name": "start_at_step", "desc": "С какого шага начать. 0 = с самого начала" },
+      { "name": "end_at_step", "desc": "На каком шаге остановиться. 10000 = до конца" },
+      { "name": "add_noise", "desc": "enable = добавить шум (обычно для первого этапа), disable = без шума (для второго этапа)" },
+      { "name": "return_with_leftover_noise", "desc": "enable = вернуть с остатком шума (для передачи во второй сэмплер)" }
+    ]
+  },
+  {
+    "id": "image-pad-outpaint",
+    "name": "Image Pad for Outpaint",
+    "name_ru": "Расширить изображение (Outpaint)",
+    "category": "image",
+    "emoji": "🖼️",
+    "what_it_does": "Расширяет холст изображения, добавляя пустые области по краям. Используется для outpainting — ИИ дорисовывает то, что выходит за рамки оригинала.",
+    "inputs": [
+      { "name": "image", "type": "image", "desc": "Исходное изображение" }
+    ],
+    "outputs": [
+      { "name": "IMAGE", "type": "image", "desc": "Расширенное изображение с пустыми полями" },
+      { "name": "MASK", "type": "mask", "desc": "Маска пустых областей для inpainting" }
+    ],
+    "params": [
+      { "name": "left", "desc": "Добавить пикселей слева" },
+      { "name": "top", "desc": "Добавить пикселей сверху" },
+      { "name": "right", "desc": "Добавить пикселей справа" },
+      { "name": "bottom", "desc": "Добавить пикселей снизу" },
+      { "name": "feathering", "desc": "Размытие края между оригиналом и новой областью для плавного перехода" }
+    ]
+  }
+]

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComfyUI — установка, ноды и воркфлоу | AI Tools Hub</title>
+  <meta name="description" content="Полный гид по ComfyUI: установка, базовые концепции, каталог нод с подробным описанием, готовые воркфлоу.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/comfyui.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span>🤖</span> AI Tools Hub</a>
+    <nav class="nav">
+      <a href="/">Все инструменты</a>
+      <a href="/comfyui.html" class="active">ComfyUI</a>
+    </nav>
+    <div class="header-spacer"></div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- Hero -->
+  <div class="cf-hero">
+    <div class="cf-hero-text">
+      <h1>Гид по <span>ComfyUI</span></h1>
+      <p>ComfyUI — мощный инструмент для генерации изображений на основе Stable Diffusion. В отличие от обычных интерфейсов, здесь ты сам соединяешь блоки-ноды в цепочку и управляешь каждым шагом генерации.</p>
+    </div>
+    <div class="cf-hero-badge">🧩</div>
+  </div>
+
+  <!-- Page nav -->
+  <nav class="cf-nav">
+    <a href="#install" class="active">⚙️ Установка</a>
+    <a href="#concepts">💡 Концепции</a>
+    <a href="#nodes">📦 Каталог нод</a>
+    <a href="#workflows">🗂️ Воркфлоу</a>
+    <a href="#custom-nodes">🔌 Кастомные ноды</a>
+  </nav>
+
+  <!-- Install -->
+  <section class="cf-section" id="install">
+    <h2 class="cf-section-title">⚙️ Установка</h2>
+    <p class="cf-section-desc">ComfyUI работает локально на твоём компьютере — данные никуда не отправляются. Для работы нужна видеокарта NVIDIA (от GTX 1060 6GB) или AMD, или процессор (медленнее).</p>
+
+    <div class="os-tabs">
+      <button class="os-tab active" data-os="windows">🪟 Windows</button>
+      <button class="os-tab" data-os="mac">🍎 Mac (Apple Silicon)</button>
+      <button class="os-tab" data-os="manual">🐧 Ручная установка</button>
+    </div>
+
+    <!-- Windows -->
+    <div class="os-content active" id="os-windows">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Скачай ComfyUI</h3>
+            <p>Перейди на страницу релизов ComfyUI на GitHub и скачай архив для Windows.</p>
+            <div class="code-block">https://github.com/comfyanonymous/ComfyUI/releases</div>
+            <p>Скачивай файл: <strong>ComfyUI_windows_portable_nvidia.7z</strong> (для NVIDIA) или <strong>ComfyUI_windows_portable_cpu.7z</strong> (только процессор)</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Распакуй архив</h3>
+            <p>Распакуй .7z архив в любую папку. Понадобится <a href="https://www.7-zip.org" target="_blank" style="color:var(--color-accent)">7-Zip</a> если не установлен.</p>
+            <div class="tip">💡 Избегай пути с кириллицей или пробелами. Лучше всего: C:\ComfyUI или D:\AI\ComfyUI</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Скачай модель</h3>
+            <p>Без модели ComfyUI не генерирует. Скачай любую модель в формате .safetensors с Hugging Face или Civitai и положи в папку:</p>
+            <div class="code-block">ComfyUI\models\checkpoints\</div>
+            <p>Для начала подойдёт <strong>dreamshaper_8.safetensors</strong> (универсальный) или <strong>v1-5-pruned-emaonly.safetensors</strong> (оригинальный SD 1.5)</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Запусти ComfyUI</h3>
+            <p>Дважды кликни на файл запуска в корне папки:</p>
+            <div class="code-block">run_nvidia_gpu.bat   — для видеокарт NVIDIA
+run_cpu.bat          — если нет GPU или AMD</div>
+            <p>Откроется чёрное окно терминала. Подожди — когда появится строка <strong>To see the GUI go to: http://127.0.0.1:8188</strong> — открой этот адрес в браузере.</p>
+            <div class="tip">💡 Не закрывай окно терминала — ComfyUI работает через него</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>Готово!</h3>
+            <p>В браузере откроется интерфейс ComfyUI с базовым воркфлоу. Нажми <strong>Queue Prompt</strong> — и первая генерация запустится.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mac -->
+    <div class="os-content" id="os-mac">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Установи Homebrew и Python</h3>
+            <p>Открой Terminal и выполни:</p>
+            <div class="code-block">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
+            <div class="code-block">brew install python@3.10</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Скачай ComfyUI</h3>
+            <div class="code-block">git clone https://github.com/comfyanonymous/ComfyUI
+cd ComfyUI</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Установи зависимости</h3>
+            <div class="code-block">pip install -r requirements.txt</div>
+            <p>Для Mac с чипом Apple (M1/M2/M3) добавь поддержку Metal:</p>
+            <div class="code-block">pip install torch torchvision torchaudio</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Положи модель и запусти</h3>
+            <p>Скопируй модель (.safetensors) в папку <strong>models/checkpoints/</strong>, затем:</p>
+            <div class="code-block">python main.py --force-fp16</div>
+            <p>Открой в браузере: <strong>http://127.0.0.1:8188</strong></p>
+            <div class="tip">💡 Флаг --force-fp16 нужен для экономии памяти на Mac</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manual -->
+    <div class="os-content" id="os-manual">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Установи Python 3.10+</h3>
+            <p>Скачай с python.org и установи. Убедись что Python добавлен в PATH.</p>
+            <div class="code-block">python --version   # должно показать 3.10+</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Клонируй репозиторий</h3>
+            <div class="code-block">git clone https://github.com/comfyanonymous/ComfyUI
+cd ComfyUI</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Установи PyTorch и зависимости</h3>
+            <p>Для NVIDIA (CUDA 11.8):</p>
+            <div class="code-block">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</div>
+            <p>Затем общие зависимости:</p>
+            <div class="code-block">pip install -r requirements.txt</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Запусти</h3>
+            <div class="code-block">python main.py</div>
+            <div class="tip">💡 Полезные флаги: --lowvram (для GPU меньше 4GB), --cpu (без GPU), --port 8080 (другой порт)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concepts -->
+  <section class="cf-section" id="concepts">
+    <h2 class="cf-section-title">💡 Базовые концепции</h2>
+    <p class="cf-section-desc">Прежде чем лезть в ноды — несколько важных идей, без которых будет сложно разобраться.</p>
+
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <div class="concept-icon">🔲</div>
+        <h3>Нода (блок)</h3>
+        <p>Каждый прямоугольник на холсте — это нода. Одна нода выполняет одну задачу: загружает модель, генерирует изображение, сохраняет результат. Ноды соединяются между собой «проводами».</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🔌</div>
+        <h3>Входы и выходы</h3>
+        <p>У каждой ноды есть слоты: <strong>слева — входы</strong> (что нода получает), <strong>справа — выходы</strong> (что нода отдаёт дальше). Соединяй выход одной ноды со входом другой — они должны быть одного типа (цвет совпадает).</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🎨</div>
+        <h3>Типы данных (цвета)</h3>
+        <p>Каждый тип данных окрашен в свой цвет: фиолетовый — MODEL, голубой — CLIP, розовый — VAE, зелёный — LATENT, оранжевый — IMAGE. Нельзя подключить LATENT куда ожидается IMAGE.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🌫️</div>
+        <h3>Латентное пространство</h3>
+        <p>Нейросеть работает не с пикселями напрямую, а в «сжатом» математическом пространстве — латентном. VAE Encode переводит изображение туда, KSampler генерирует там, VAE Decode возвращает обратно в пиксели.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">📝</div>
+        <h3>Позитивный и негативный промпт</h3>
+        <p>Нужны две ноды CLIP Text Encode: одна описывает что хочешь увидеть, другая — чего не хочешь. Негативный промпт помогает убирать типичные проблемы: размытость, лишние конечности, плохое качество.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">🎲</div>
+        <h3>Seed и воспроизводимость</h3>
+        <p>Seed — число, задающее «случайность» генерации. Одинаковый seed + одинаковые настройки = одинаковое изображение. Это позволяет экспериментировать, меняя только один параметр за раз.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">⚡</div>
+        <h3>Queue Prompt</h3>
+        <p>Кнопка запуска генерации. ComfyUI выполняет граф нод слева направо — сначала загрузчики, потом генерация, в конце сохранение. Можно поставить несколько заданий в очередь.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-icon">📂</div>
+        <h3>Структура папок</h3>
+        <p><strong>models/checkpoints/</strong> — основные модели<br><strong>models/loras/</strong> — LoRA файлы<br><strong>models/vae/</strong> — VAE модели<br><strong>models/controlnet/</strong> — ControlNet модели<br><strong>output/</strong> — готовые изображения</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nodes -->
+  <section class="cf-section" id="nodes">
+    <h2 class="cf-section-title">📦 Каталог нод</h2>
+    <p class="cf-section-desc">Все стандартные ноды ComfyUI с подробным описанием. Нажми на любую ноду чтобы увидеть входы, выходы и объяснение каждого параметра.</p>
+
+    <div class="node-filters">
+      <div class="search-wrap" style="margin-right:4px">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="position:absolute;left:10px;color:var(--color-text-muted);pointer-events:none">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input class="search-input" id="node-search" type="search" placeholder="Поиск ноды..." style="width:200px">
+      </div>
+      <span class="chip node-filter-chip active" data-cat="all">Все</span>
+      <span class="chip node-filter-chip" data-cat="loaders">Загрузчики</span>
+      <span class="chip node-filter-chip" data-cat="conditioning">Кондиционирование</span>
+      <span class="chip node-filter-chip" data-cat="samplers">Сэмплеры</span>
+      <span class="chip node-filter-chip" data-cat="latent">Латентное</span>
+      <span class="chip node-filter-chip" data-cat="image">Изображения</span>
+      <span class="chip node-filter-chip" data-cat="upscale">Апскейл</span>
+      <span class="chip node-filter-chip" data-cat="controlnet">ControlNet</span>
+      <span class="chip node-filter-chip" data-cat="utils">Утилиты</span>
+      <span id="node-count" style="font-size:13px;color:var(--color-text-muted);margin-left:auto"></span>
+    </div>
+
+    <div class="node-grid" id="node-grid"></div>
+  </section>
+
+  <!-- Workflows -->
+  <section class="cf-section" id="workflows">
+    <h2 class="cf-section-title">🗂️ Готовые воркфлоу</h2>
+    <p class="cf-section-desc">Типовые сборки нод под разные задачи. Изучи какие ноды нужны для каждого сценария — это поможет собрать собственный воркфлоу.</p>
+
+    <div class="workflow-grid">
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-beginner">Начинающий</span>
+        <h3>🖼️ Text to Image</h3>
+        <p>Базовый воркфлоу: генерация изображения из текстового описания с нуля. Именно с него начинают все.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Checkpoint</div>
+          <div class="workflow-node">CLIP Text Encode × 2 (+ и −)</div>
+          <div class="workflow-node">Empty Latent Image</div>
+          <div class="workflow-node">KSampler</div>
+          <div class="workflow-node">VAE Decode</div>
+          <div class="workflow-node">Save Image</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-beginner">Начинающий</span>
+        <h3>🔄 Image to Image</h3>
+        <p>Берёт существующее изображение и изменяет его по промпту. Сила изменения регулируется параметром denoise в KSampler.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Checkpoint</div>
+          <div class="workflow-node">Load Image</div>
+          <div class="workflow-node">VAE Encode</div>
+          <div class="workflow-node">CLIP Text Encode × 2</div>
+          <div class="workflow-node">KSampler (denoise: 0.5–0.8)</div>
+          <div class="workflow-node">VAE Decode → Save Image</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-medium">Средний</span>
+        <h3>🔭 Hires Fix</h3>
+        <p>Двухэтапная генерация: сначала в маленьком разрешении, потом апскейл и доработка деталей. Позволяет получить большие изображения без артефактов.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Checkpoint + промпты</div>
+          <div class="workflow-node">Empty Latent Image (512×512)</div>
+          <div class="workflow-node">KSampler (шаг 1)</div>
+          <div class="workflow-node">Latent Upscale (до 1024×1024)</div>
+          <div class="workflow-node">KSampler (шаг 2, denoise: 0.4)</div>
+          <div class="workflow-node">VAE Decode → Save Image</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-medium">Средний</span>
+        <h3>🔬 Upscale нейросетью</h3>
+        <p>Увеличивает готовое изображение в 4× через специализированную upscale-модель (RealESRGAN, 4x-UltraSharp).</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Image</div>
+          <div class="workflow-node">Load Upscale Model</div>
+          <div class="workflow-node">Image Upscale with Model</div>
+          <div class="workflow-node">Save Image</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-medium">Средний</span>
+        <h3>🎨 LoRA стилизация</h3>
+        <p>Добавляет в воркфлоу LoRA — модуль для конкретного стиля или персонажа. Можно стекировать несколько LoRA с разной силой.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Checkpoint</div>
+          <div class="workflow-node">Load LoRA (сила: 0.7–1.0)</div>
+          <div class="workflow-node">CLIP Text Encode × 2</div>
+          <div class="workflow-node">Empty Latent Image</div>
+          <div class="workflow-node">KSampler → VAE Decode → Save</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-advanced">Продвинутый</span>
+        <h3>🕹️ ControlNet по контурам</h3>
+        <p>Генерирует изображение с точным соблюдением контуров референса. Используй Canny ControlNet — он извлекает края из фото.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Checkpoint + Load ControlNet</div>
+          <div class="workflow-node">Load Image (референс)</div>
+          <div class="workflow-node">Apply ControlNet (canny)</div>
+          <div class="workflow-node">Conditioning Combine</div>
+          <div class="workflow-node">KSampler → VAE Decode → Save</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-advanced">Продвинутый</span>
+        <h3>🖌️ Inpainting</h3>
+        <p>Закрашивает выбранную область изображения по промпту. Нужно нарисовать маску поверх той части, которую хочешь изменить.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Image + маска</div>
+          <div class="workflow-node">VAE Encode (for Inpaint)</div>
+          <div class="workflow-node">CLIP Text Encode × 2</div>
+          <div class="workflow-node">KSampler (denoise: 1.0)</div>
+          <div class="workflow-node">VAE Decode → Save Image</div>
+        </div>
+      </div>
+
+      <div class="workflow-card">
+        <span class="wf-badge wf-advanced">Продвинутый</span>
+        <h3>🌅 Outpainting</h3>
+        <p>Дорисовывает то, что находится за краями изображения. Позволяет расширить фотографию или арт в любую сторону.</p>
+        <div class="workflow-nodes">
+          <div class="workflow-node">Load Image</div>
+          <div class="workflow-node">Image Pad for Outpaint</div>
+          <div class="workflow-node">VAE Encode + маска</div>
+          <div class="workflow-node">KSampler (denoise: 1.0)</div>
+          <div class="workflow-node">VAE Decode → Save Image</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Custom nodes -->
+  <section class="cf-section" id="custom-nodes">
+    <h2 class="cf-section-title">🔌 Кастомные ноды</h2>
+    <p class="cf-section-desc">Помимо стандартных нод, сообщество создало тысячи расширений. Устанавливаются через <strong>ComfyUI Manager</strong> — его ставят первым делом.</p>
+
+    <div class="custom-grid">
+
+      <div class="custom-card">
+        <div class="custom-icon">🗂️</div>
+        <h3>ComfyUI Manager</h3>
+        <div class="custom-maker">ltdrdata</div>
+        <p>Менеджер расширений для ComfyUI. Позволяет устанавливать, обновлять и удалять кастомные ноды прямо из интерфейса — без командной строки. Устанавливай первым.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">🕹️</div>
+        <h3>ControlNet Preprocessors</h3>
+        <div class="custom-maker">Fannovel16</div>
+        <p>Набор нод для подготовки референсов ControlNet: извлечение контуров (Canny, Lineart), определение поз (OpenPose), карты глубины (MiDaS, Zoe) и многое другое.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">🖼️</div>
+        <h3>IPAdapter Plus</h3>
+        <div class="custom-maker">cubiq</div>
+        <p>Перенос стиля и внешности с одного изображения на другое. Скажи модели «сделай как на этой картинке» — она перенесёт стиль, освещение или лицо персонажа.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">🎬</div>
+        <h3>AnimateDiff</h3>
+        <div class="custom-maker">Kosinkadink</div>
+        <p>Создаёт анимации и короткие видео из Stable Diffusion. Добавляет «движение» к генерации — получаются плавные зацикленные анимации.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">✂️</div>
+        <h3>WAS Node Suite</h3>
+        <div class="custom-maker">WASasquatch</div>
+        <p>Огромный набор утилит: работа с масками, текстом, изображениями, цветами, файлами. Более 100 дополнительных нод для тонкой настройки воркфлоу.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">🔤</div>
+        <h3>ComfyUI Impact Pack</h3>
+        <div class="custom-maker">ltdrdata</div>
+        <p>Детектирование лиц, автоматическое inpainting проблемных зон, сегментация объектов. Помогает исправлять дефекты рук и лиц автоматически.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">🧩</div>
+        <h3>SDXL Prompt Styler</h3>
+        <div class="custom-maker">twri</div>
+        <p>Библиотека стилей для промптов. Выбираешь стиль из списка (кинематографический, акварель, 3D-рендер и т.д.) — нода автоматически добавляет нужные теги к промпту.</p>
+      </div>
+
+      <div class="custom-card">
+        <div class="custom-icon">🌐</div>
+        <h3>ComfyUI-VideoHelperSuite</h3>
+        <div class="custom-maker">Kosinkadink</div>
+        <p>Загрузка, обработка и сохранение видео. Нужен для AnimateDiff и других видео-воркфлоу: разбивает видео на кадры и собирает обратно.</p>
+      </div>
+
+    </div>
+
+    <div class="tip" style="margin-top:1.5rem">
+      💡 Все кастомные ноды устанавливаются через ComfyUI Manager → Install Custom Nodes → поиск по названию → Install. После установки нужно перезапустить ComfyUI.
+    </div>
+  </section>
+
+</main>
+
+<script src="js/comfyui.js"></script>
+</body>
+</html>
