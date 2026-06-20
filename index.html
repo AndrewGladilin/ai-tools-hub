@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Hub — сравнение нейросетей</title>
+  <meta name="description" content="Сравниваем нейросети по цене, возможностям и характеристикам. Текст, изображения, видео, аудио, код.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><span>🤖</span> AI Tools Hub</a>
+    <nav class="nav">
+      <a href="#" class="active">Все инструменты</a>
+      <a href="#compare-section">Сравнение</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <div class="search-wrap">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input class="search-input" id="search" type="search" placeholder="Поиск нейросети...">
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <h1>Все нейросети<br><span>в одном месте</span></h1>
+    <p>Сравнивайте инструменты по цене, возможностям и характеристикам</p>
+  </section>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="num" id="stat-total">—</div>
+      <div class="label">нейросетей</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="stat-free">—</div>
+      <div class="label">с бесплатным планом</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="stat-cats">—</div>
+      <div class="label">категорий</div>
+    </div>
+  </div>
+
+  <div class="filters-row">
+    <span class="label">Категория:</span>
+    <div class="chip active" data-filter="all">Все</div>
+    <div class="chip" data-filter="text"><span class="dot" style="background:#378ADD"></span>Текст</div>
+    <div class="chip" data-filter="image"><span class="dot" style="background:#639922"></span>Изображения</div>
+    <div class="chip" data-filter="video"><span class="dot" style="background:#BA7517"></span>Видео</div>
+    <div class="chip" data-filter="audio"><span class="dot" style="background:#D4537E"></span>Аудио</div>
+    <div class="chip" data-filter="code"><span class="dot" style="background:#7F77DD"></span>Код</div>
+  </div>
+
+  <div class="tools-grid" id="tools-grid"></div>
+
+  <!-- Compare sticky bar -->
+  <div class="compare-bar" id="compare-bar">
+    <div class="compare-bar-inner">
+      <span class="label">Выбрано:</span>
+      <div class="selected-items" id="selected-badges"></div>
+      <button class="btn" id="btn-clear">Сбросить</button>
+      <button class="btn btn-primary" id="btn-compare">Сравнить →</button>
+    </div>
+  </div>
+
+  <!-- Compare table -->
+  <section id="compare-section">
+    <h2 class="section-title">📊 Сравнительная таблица</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table" id="compare-table"></table>
+    </div>
+  </section>
+
+</main>
+
+<!-- Toast notice -->
+<div id="notice" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:300"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
