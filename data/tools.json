@@ -26,11 +26,11 @@
     "tags": ["text", "code"],
     "description": "Языковая модель от Anthropic с акцентом на безопасность и длинный контекст. Отлично справляется с анализом документов.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / $15 / от $90 в мес",
+    "price": "Бесплатно / $20 / $100 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Pro", "price": "$15/мес" },
-      { "name": "Max", "price": "от $90/мес" }
+      { "name": "Pro", "price": "$20/мес" },
+      { "name": "Max", "price": "$100/мес" }
     ],
     "context": "200K", "multimodal": true, "voice": false, "web": true, "released": "2023"
   },
