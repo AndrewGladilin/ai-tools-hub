@@ -8,12 +8,11 @@
     "tags": ["text", "code", "image"],
     "description": "Самая популярная языковая модель в мире. GPT-4o умеет работать с текстом, изображениями и голосом.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / $8 / $23 / $103 в мес",
+    "price": "Бесплатно / $20 / $200 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Go", "price": "$8/мес" },
-      { "name": "Plus", "price": "$23/мес" },
-      { "name": "Pro", "price": "$103/мес" }
+      { "name": "Plus", "price": "$20/мес" },
+      { "name": "Pro", "price": "$200/мес" }
     ],
     "context": "128K", "multimodal": true, "voice": true, "web": true, "released": "2022"
   },
