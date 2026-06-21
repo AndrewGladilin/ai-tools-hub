@@ -91,10 +91,11 @@
     "tags": ["text", "code"],
     "description": "Европейская языковая модель с акцентом на эффективность. Открытые версии работают на скромном железе.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / по токенам",
+    "price": "Бесплатно / $15 / $25 в мес",
     "plans": [
-      { "name": "Free", "price": "Бесплатно" },
-      { "name": "API", "price": "По токенам" }
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$15/мес" },
+      { "name": "Team", "price": "$25/мес" }
     ],
     "context": "128K", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
