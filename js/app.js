@@ -133,7 +133,9 @@ function buildCompareTable() {
 
   const rows = [
     ['Производитель', t => t.maker],
-    ['Цена', t => `<strong>${t.price}</strong>`],
+    ['Планы и цены', t => t.plans
+      ? t.plans.map(p => `<span class="plan-badge">${p.name}<span class="plan-price">${p.price}</span></span>`).join('')
+      : `<strong>${t.price}</strong>`],
     ['Бесплатный план', t => t.free ? '<span class="yes">✓ Есть</span>' : '<span class="no">✗ Нет</span>'],
     ['Русский язык', t => t.ru ? '<span class="yes">✓ Да</span>' : '<span class="no">✗ Нет</span>'],
     ['Категории', t => t.tags.map(tag => `<span class="tag tag-${tag}" style="display:inline-block">${TAG_LABELS[tag]}</span>`).join(' ')],

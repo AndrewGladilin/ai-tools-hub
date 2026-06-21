@@ -462,6 +462,24 @@ a { color: inherit; text-decoration: none; }
 
 .compare-table tr:hover td { background: var(--color-bg-secondary); }
 
+.plan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  background: var(--color-bg-secondary);
+  border: 0.5px solid var(--color-border);
+  border-radius: 8px;
+  padding: 3px 8px;
+  margin: 2px 3px 2px 0;
+  white-space: nowrap;
+}
+
+.plan-price {
+  font-weight: 600;
+  color: var(--color-accent-text);
+}
+
 .yes { color: #3B6D11; font-weight: 500; }
 .no  { color: #A32D2D; }
 .part { color: #854F0B; }

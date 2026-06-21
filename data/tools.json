@@ -7,15 +7,15 @@
     "url": "https://chat.openai.com",
     "tags": ["text", "code", "image"],
     "description": "Самая популярная языковая модель в мире. GPT-4o умеет работать с текстом, изображениями и голосом.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / €8 / €23 / €103 в мес",
-    "context": "128K",
-    "multimodal": true,
-    "voice": true,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Free", "price": "€0/мес" },
+      { "name": "Go", "price": "€8/мес" },
+      { "name": "Plus", "price": "€23/мес" },
+      { "name": "Pro", "price": "€103/мес" }
+    ],
+    "context": "128K", "multimodal": true, "voice": true, "web": true, "released": "2022"
   },
   {
     "id": "claude",
@@ -25,15 +25,14 @@
     "url": "https://claude.ai",
     "tags": ["text", "code"],
     "description": "Языковая модель от Anthropic с акцентом на безопасность и длинный контекст. Отлично справляется с анализом документов.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / $20 в мес",
-    "context": "200K",
-    "multimodal": true,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$20/мес" },
+      { "name": "Team", "price": "$25/мес" }
+    ],
+    "context": "200K", "multimodal": true, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "gemini",
@@ -43,15 +42,13 @@
     "url": "https://gemini.google.com",
     "tags": ["text", "code", "image"],
     "description": "Мультимодальная модель Google с рекордным контекстным окном в 1 миллион токенов.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / $20 в мес",
-    "context": "1M",
-    "multimodal": true,
-    "voice": true,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Advanced", "price": "$20/мес" }
+    ],
+    "context": "1M", "multimodal": true, "voice": true, "web": true, "released": "2023"
   },
   {
     "id": "grok",
@@ -61,15 +58,13 @@
     "url": "https://grok.x.ai",
     "tags": ["text", "image"],
     "description": "Модель от Илона Маска с доступом к актуальным данным из X (Twitter) в реальном времени.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / $30 в мес",
-    "context": "128K",
-    "multimodal": true,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "SuperGrok", "price": "$30/мес" }
+    ],
+    "context": "128K", "multimodal": true, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "llama",
@@ -79,15 +74,12 @@
     "url": "https://llama.meta.com",
     "tags": ["text", "code"],
     "description": "Открытая языковая модель от Meta. Можно запускать локально, использовать бесплатно и дообучать под свои задачи.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно (open source)",
-    "context": "128K",
-    "multimodal": false,
-    "voice": false,
-    "web": false,
-    "released": "2023"
+    "plans": [
+      { "name": "Open Source", "price": "Бесплатно" }
+    ],
+    "context": "128K", "multimodal": false, "voice": false, "web": false, "released": "2023"
   },
   {
     "id": "mistral",
@@ -97,15 +89,13 @@
     "url": "https://mistral.ai",
     "tags": ["text", "code"],
     "description": "Европейская языковая модель с акцентом на эффективность. Открытые версии работают на скромном железе.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / по токенам",
-    "context": "128K",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "Бесплатно" },
+      { "name": "API", "price": "По токенам" }
+    ],
+    "context": "128K", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "deepseek",
@@ -115,15 +105,13 @@
     "url": "https://chat.deepseek.com",
     "tags": ["text", "code"],
     "description": "Китайская языковая модель, которая потрясла индустрию качеством при минимальных затратах на обучение.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / по токенам",
-    "context": "128K",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "Бесплатно" },
+      { "name": "API", "price": "По токенам" }
+    ],
+    "context": "128K", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "qwen",
@@ -133,15 +121,13 @@
     "url": "https://chat.qwenlm.ai",
     "tags": ["text", "code", "image"],
     "description": "Семейство мультимодальных моделей от Alibaba. Отлично работает с китайским и английским языками.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / по токенам",
-    "context": "128K",
-    "multimodal": true,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "Бесплатно" },
+      { "name": "API", "price": "По токенам" }
+    ],
+    "context": "128K", "multimodal": true, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "copilot-ms",
@@ -151,15 +137,13 @@
     "url": "https://copilot.microsoft.com",
     "tags": ["text", "image"],
     "description": "ИИ-ассистент от Microsoft на базе GPT-4o и DALL-E 3. Встроен в Windows, Edge и Office.",
-    "free": true,
-    "api": false,
-    "ru": true,
+    "free": true, "api": false, "ru": true,
     "price": "Бесплатно / $20 в мес",
-    "context": "128K",
-    "multimodal": true,
-    "voice": true,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$20/мес" }
+    ],
+    "context": "128K", "multimodal": true, "voice": true, "web": true, "released": "2023"
   },
   {
     "id": "midjourney",
@@ -169,15 +153,15 @@
     "url": "https://midjourney.com",
     "tags": ["image"],
     "description": "Лучший генератор изображений для художественных и концептуальных работ. Результаты отличаются высоким качеством.",
-    "free": false,
-    "api": false,
-    "ru": false,
+    "free": false, "api": false, "ru": false,
     "price": "$10 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Basic", "price": "$10/мес" },
+      { "name": "Standard", "price": "$30/мес" },
+      { "name": "Pro", "price": "$60/мес" },
+      { "name": "Mega", "price": "$120/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2022"
   },
   {
     "id": "dalle",
@@ -187,15 +171,13 @@
     "url": "https://openai.com/dall-e-3",
     "tags": ["image"],
     "description": "Генератор изображений от OpenAI, встроенный в ChatGPT Plus. Хорошо понимает сложные текстовые описания.",
-    "free": false,
-    "api": true,
-    "ru": true,
+    "free": false, "api": true, "ru": true,
     "price": "Через ChatGPT Plus",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": false,
-    "released": "2023"
+    "plans": [
+      { "name": "ChatGPT Plus", "price": "€23/мес" },
+      { "name": "API", "price": "По запросам" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": false, "released": "2023"
   },
   {
     "id": "flux",
@@ -205,15 +187,13 @@
     "url": "https://blackforestlabs.ai",
     "tags": ["image"],
     "description": "Открытая модель генерации изображений с высоким качеством. Доступна через API и локально.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / по токенам",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Open Source", "price": "Бесплатно" },
+      { "name": "API", "price": "По токенам" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "stablediffusion",
@@ -223,15 +203,13 @@
     "url": "https://stability.ai",
     "tags": ["image"],
     "description": "Пионер открытых моделей генерации изображений. Можно запускать локально на своём компьютере.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно (локально)",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Open Source", "price": "Бесплатно" },
+      { "name": "API", "price": "По токенам" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2022"
   },
   {
     "id": "ideogram",
@@ -241,15 +219,14 @@
     "url": "https://ideogram.ai",
     "tags": ["image"],
     "description": "Генератор изображений, который умеет правильно рендерить текст внутри картинки — редкое умение среди AI.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / $8 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Basic", "price": "$8/мес" },
+      { "name": "Plus", "price": "$20/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "adobe-firefly",
@@ -259,15 +236,13 @@
     "url": "https://firefly.adobe.com",
     "tags": ["image", "video"],
     "description": "ИИ-генератор от Adobe, обученный на лицензированных изображениях. Безопасен для коммерческого использования.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $5 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Premium", "price": "$5/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "leonardo",
@@ -277,15 +252,15 @@
     "url": "https://leonardo.ai",
     "tags": ["image"],
     "description": "Платформа для генерации изображений с акцентом на игровой арт и концепт-арт. Много моделей на выбор.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / $12 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Apprentice", "price": "$12/мес" },
+      { "name": "Artisan", "price": "$30/мес" },
+      { "name": "Maestro", "price": "$60/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2022"
   },
   {
     "id": "runway",
@@ -295,15 +270,15 @@
     "url": "https://runwayml.com",
     "tags": ["video"],
     "description": "Профессиональный инструмент для генерации видео. Используется в Голливуде и рекламной индустрии.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $15 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Standard", "price": "$15/мес" },
+      { "name": "Pro", "price": "$35/мес" },
+      { "name": "Unlimited", "price": "$95/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "kling",
@@ -313,15 +288,14 @@
     "url": "https://klingai.com",
     "tags": ["video"],
     "description": "Китайский генератор видео с реалистичной физикой движения. Бесплатный план с хорошим качеством.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $10 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Starter", "price": "$10/мес" },
+      { "name": "Pro", "price": "$35/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "sora",
@@ -331,15 +305,12 @@
     "url": "https://sora.com",
     "tags": ["video"],
     "description": "Генератор видео от OpenAI с высоким качеством и реалистичной физикой. На данный момент недоступен — сервис закрыт.",
-    "free": false,
-    "api": false,
-    "ru": false,
+    "free": false, "api": false, "ru": false,
     "price": "Недоступен",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Недоступен", "price": "—" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "veo",
@@ -349,15 +320,12 @@
     "url": "https://deepmind.google/technologies/veo",
     "tags": ["video"],
     "description": "Генератор видео от Google DeepMind с высоким разрешением и точным следованием инструкциям.",
-    "free": false,
-    "api": false,
-    "ru": false,
+    "free": false, "api": false, "ru": false,
     "price": "Через Google AI Test Kitchen",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Ранний доступ", "price": "Уточняется" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "hailuo",
@@ -367,15 +335,14 @@
     "url": "https://hailuoai.video",
     "tags": ["video"],
     "description": "Китайский генератор видео с реалистичными движениями людей и хорошим бесплатным планом.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $9 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Basic", "price": "$9/мес" },
+      { "name": "Pro", "price": "$29/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "suno",
@@ -385,15 +352,14 @@
     "url": "https://suno.com",
     "tags": ["audio"],
     "description": "Генерирует полноценные песни с вокалом и инструментами по текстовому описанию.",
-    "free": true,
-    "api": false,
-    "ru": true,
+    "free": true, "api": false, "ru": true,
     "price": "Бесплатно / $10 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$10/мес" },
+      { "name": "Premier", "price": "$30/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "udio",
@@ -403,15 +369,14 @@
     "url": "https://udio.com",
     "tags": ["audio"],
     "description": "Конкурент Suno с акцентом на высокое качество звука и разнообразие музыкальных стилей.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $12 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Standard", "price": "$12/мес" },
+      { "name": "Pro", "price": "$24/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "elevenlabs",
@@ -421,15 +386,15 @@
     "url": "https://elevenlabs.io",
     "tags": ["audio"],
     "description": "Лучший инструмент для синтеза и клонирования голоса. Поддерживает русский язык.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / $5 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": true,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Starter", "price": "$5/мес" },
+      { "name": "Creator", "price": "$22/мес" },
+      { "name": "Pro", "price": "$99/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": true, "web": true, "released": "2022"
   },
   {
     "id": "mubert",
@@ -439,15 +404,14 @@
     "url": "https://mubert.com",
     "tags": ["audio"],
     "description": "Генерирует роялти-фри фоновую музыку под любое настроение и темп. Удобен для видеоблогеров.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / $14 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2021"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Ambassador", "price": "$14/мес" },
+      { "name": "Artist", "price": "$39/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2021"
   },
   {
     "id": "whisper",
@@ -457,15 +421,13 @@
     "url": "https://openai.com/research/whisper",
     "tags": ["audio"],
     "description": "Открытая модель распознавания речи от OpenAI. Понимает 99 языков включая русский. Можно запускать локально.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно (open source)",
-    "context": "—",
-    "multimodal": false,
-    "voice": true,
-    "web": false,
-    "released": "2022"
+    "plans": [
+      { "name": "Open Source", "price": "Бесплатно" },
+      { "name": "API", "price": "$0.006/мин" }
+    ],
+    "context": "—", "multimodal": false, "voice": true, "web": false, "released": "2022"
   },
   {
     "id": "copilot",
@@ -475,15 +437,14 @@
     "url": "https://github.com/features/copilot",
     "tags": ["code"],
     "description": "ИИ-помощник для программирования, встроенный в VS Code и другие IDE. Автодополнение и генерация кода.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $10 в мес",
-    "context": "64K",
-    "multimodal": false,
-    "voice": false,
-    "web": false,
-    "released": "2021"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$10/мес" },
+      { "name": "Business", "price": "$19/мес" }
+    ],
+    "context": "64K", "multimodal": false, "voice": false, "web": false, "released": "2021"
   },
   {
     "id": "cursor",
@@ -493,15 +454,14 @@
     "url": "https://cursor.com",
     "tags": ["code"],
     "description": "IDE на базе VS Code с глубокой интеграцией ИИ. Понимает весь проект целиком и редактирует несколько файлов сразу.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $20 в мес",
-    "context": "200K",
-    "multimodal": false,
-    "voice": false,
-    "web": false,
-    "released": "2023"
+    "plans": [
+      { "name": "Hobby", "price": "$0/мес" },
+      { "name": "Pro", "price": "$20/мес" },
+      { "name": "Business", "price": "$40/мес" }
+    ],
+    "context": "200K", "multimodal": false, "voice": false, "web": false, "released": "2023"
   },
   {
     "id": "windsurf",
@@ -511,15 +471,14 @@
     "url": "https://windsurf.com",
     "tags": ["code"],
     "description": "ИИ-редактор от Codeium с функцией Cascade — агент сам планирует и выполняет многошаговые задачи по коду.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $15 в мес",
-    "context": "200K",
-    "multimodal": false,
-    "voice": false,
-    "web": false,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$15/мес" },
+      { "name": "Teams", "price": "$30/мес" }
+    ],
+    "context": "200K", "multimodal": false, "voice": false, "web": false, "released": "2024"
   },
   {
     "id": "tabnine",
@@ -529,15 +488,14 @@
     "url": "https://tabnine.com",
     "tags": ["code"],
     "description": "ИИ-автодополнение кода с акцентом на приватность. Можно развернуть полностью локально без отправки кода в облако.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $12 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": false,
-    "released": "2018"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Dev", "price": "$12/мес" },
+      { "name": "Enterprise", "price": "По запросу" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": false, "released": "2018"
   },
   {
     "id": "perplexity",
@@ -547,15 +505,13 @@
     "url": "https://perplexity.ai",
     "tags": ["text"],
     "description": "ИИ-поисковик, который отвечает на вопросы со ссылками на источники в реальном времени.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / $20 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$20/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2022"
   },
   {
     "id": "notebooklm",
@@ -565,15 +521,13 @@
     "url": "https://notebooklm.google",
     "tags": ["text", "audio"],
     "description": "ИИ-инструмент для работы с документами. Умеет превращать любые материалы в подкаст с двумя ведущими.",
-    "free": true,
-    "api": false,
-    "ru": true,
+    "free": true, "api": false, "ru": true,
     "price": "Бесплатно",
-    "context": "1M",
-    "multimodal": false,
-    "voice": true,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "Бесплатно" },
+      { "name": "Plus", "price": "Через Google One AI" }
+    ],
+    "context": "1M", "multimodal": false, "voice": true, "web": true, "released": "2023"
   },
   {
     "id": "character-ai",
@@ -583,15 +537,13 @@
     "url": "https://character.ai",
     "tags": ["text"],
     "description": "Платформа для общения с ИИ-персонажами. Можно создавать собственных персонажей с уникальными характерами.",
-    "free": true,
-    "api": false,
-    "ru": true,
+    "free": true, "api": false, "ru": true,
     "price": "Бесплатно / $10 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": true,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "c.ai+", "price": "$10/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": true, "web": true, "released": "2022"
   },
   {
     "id": "pika",
@@ -601,15 +553,15 @@
     "url": "https://pika.art",
     "tags": ["video"],
     "description": "Генератор видео с простым интерфейсом и функцией анимации существующих фотографий.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $8 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Basic", "price": "$8/мес" },
+      { "name": "Standard", "price": "$28/мес" },
+      { "name": "Pro", "price": "$58/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "luma",
@@ -619,15 +571,14 @@
     "url": "https://lumalabs.ai/dream-machine",
     "tags": ["video"],
     "description": "Быстрый генератор видео с реалистичным движением. Принимает на вход как текст, так и изображения.",
-    "free": true,
-    "api": true,
-    "ru": false,
+    "free": true, "api": true, "ru": false,
     "price": "Бесплатно / $30 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": false,
-    "web": true,
-    "released": "2024"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Plus", "price": "$30/мес" },
+      { "name": "Pro", "price": "$100/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
   {
     "id": "canva-ai",
@@ -637,15 +588,14 @@
     "url": "https://canva.com",
     "tags": ["image", "video", "text"],
     "description": "Дизайн-платформа со встроенными ИИ-инструментами: генерация изображений, удаление фона, ИИ-текст и многое другое.",
-    "free": true,
-    "api": false,
-    "ru": true,
+    "free": true, "api": false, "ru": true,
     "price": "Бесплатно / $15 в мес",
-    "context": "—",
-    "multimodal": true,
-    "voice": false,
-    "web": true,
-    "released": "2023"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Pro", "price": "$15/мес" },
+      { "name": "Teams", "price": "$10/мес за чел." }
+    ],
+    "context": "—", "multimodal": true, "voice": false, "web": true, "released": "2023"
   },
   {
     "id": "heygen",
@@ -655,15 +605,14 @@
     "url": "https://heygen.com",
     "tags": ["video"],
     "description": "Создаёт видео с реалистичными ИИ-аватарами. Умеет переводить видео с синхронизацией губ на другой язык.",
-    "free": true,
-    "api": true,
-    "ru": true,
+    "free": true, "api": true, "ru": true,
     "price": "Бесплатно / $29 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": true,
-    "web": true,
-    "released": "2022"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Creator", "price": "$29/мес" },
+      { "name": "Business", "price": "$89/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": true, "web": true, "released": "2022"
   },
   {
     "id": "descript",
@@ -673,14 +622,13 @@
     "url": "https://descript.com",
     "tags": ["audio", "video"],
     "description": "Редактор видео и подкастов с ИИ: монтаж через редактирование текста, удаление слов-паразитов, клонирование голоса.",
-    "free": true,
-    "api": false,
-    "ru": false,
+    "free": true, "api": false, "ru": false,
     "price": "Бесплатно / $24 в мес",
-    "context": "—",
-    "multimodal": false,
-    "voice": true,
-    "web": true,
-    "released": "2017"
+    "plans": [
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "Hobbyist", "price": "$24/мес" },
+      { "name": "Creator", "price": "$40/мес" }
+    ],
+    "context": "—", "multimodal": false, "voice": true, "web": true, "released": "2017"
   }
 ]
