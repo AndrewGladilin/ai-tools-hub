@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сравнение нейросетей | AI Tools Hub</title>
+  <meta name="description" content="Сравнивайте нейросети по цене, возможностям и характеристикам.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🤖</span> AI Tools Hub</a>
+    <nav class="nav">
+      <a href="index.html">Все инструменты</a>
+      <a href="compare.html" class="active">Сравнение</a>
+      <a href="basics.html">Основы</a>
+      <a href="comfyui.html">ComfyUI</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <h1>Сравнение<br><span>нейросетей</span></h1>
+    <p>Выбери до 4 инструментов и сравни их по характеристикам</p>
+  </section>
+
+  <!-- Picker -->
+  <div style="margin-bottom:1.5rem">
+    <div class="filters-row" id="cat-filters">
+      <span class="label">Категория:</span>
+      <div class="chip active" data-filter="all">Все</div>
+      <div class="chip" data-filter="text"><span class="dot" style="background:#378ADD"></span>Текст</div>
+      <div class="chip" data-filter="image"><span class="dot" style="background:#639922"></span>Изображения</div>
+      <div class="chip" data-filter="video"><span class="dot" style="background:#BA7517"></span>Видео</div>
+      <div class="chip" data-filter="audio"><span class="dot" style="background:#D4537E"></span>Аудио</div>
+      <div class="chip" data-filter="code"><span class="dot" style="background:#7F77DD"></span>Код</div>
+    </div>
+
+    <div class="tools-grid" id="picker-grid" style="margin-bottom:0"></div>
+  </div>
+
+  <!-- Compare bar -->
+  <div class="compare-bar" id="compare-bar">
+    <div class="compare-bar-inner">
+      <span class="label">Выбрано:</span>
+      <div class="selected-items" id="selected-badges"></div>
+      <button class="btn" id="btn-clear">Сбросить</button>
+      <button class="btn btn-primary" id="btn-compare">Сравнить →</button>
+    </div>
+  </div>
+
+  <!-- Compare table -->
+  <section id="compare-section" style="display:none; margin-top:2rem">
+    <h2 class="section-title">📊 Сравнительная таблица</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table" id="compare-table"></table>
+    </div>
+  </section>
+
+</main>
+
+<div id="notice" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:300"></div>
+
+<script src="js/compare.js"></script>
+</body>
+</html>

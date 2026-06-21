@@ -347,13 +347,26 @@ a { color: inherit; text-decoration: none; }
   .free-badge { background: #173404; color: #97C459; }
 }
 
-.visit-link {
-  font-size: 12px;
-  color: var(--color-accent);
-  opacity: 0;
-  transition: opacity 0.15s;
+.tool-visit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  padding: 7px 12px;
+  border-radius: var(--radius-md);
+  border: 0.5px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-muted);
+  transition: all 0.15s;
+  margin-top: 4px;
+  text-decoration: none;
 }
-.tool-card:hover .visit-link { opacity: 1; }
+.tool-visit-btn:hover {
+  background: var(--color-accent-bg);
+  border-color: var(--color-accent);
+  color: var(--color-accent-text);
+}
 
 /* Compare bar */
 .compare-bar {
