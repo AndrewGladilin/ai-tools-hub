@@ -42,10 +42,12 @@
     "tags": ["text", "code", "image"],
     "description": "Мультимодальная модель Google с рекордным контекстным окном в 1 миллион токенов.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / $20 в мес",
+    "price": "Бесплатно / $5 / $20 / от $100 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Advanced", "price": "$20/мес" }
+      { "name": "AI Plus", "price": "$5/мес" },
+      { "name": "AI Pro", "price": "$20/мес" },
+      { "name": "AI Ultra", "price": "от $100/мес" }
     ],
     "context": "1M", "multimodal": true, "voice": true, "web": true, "released": "2023"
   },
