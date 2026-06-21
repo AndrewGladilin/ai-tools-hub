@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы нейросетей — для новичков | AI Tools Hub</title>
+  <meta name="description" content="Что такое нейросети, как они работают, история AI и перспективы. Объясняем просто и понятно, без технического жаргона.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/basics.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span>🤖</span> AI Tools Hub</a>
+    <nav class="nav">
+      <a href="index.html">Все инструменты</a>
+      <a href="basics.html" class="active">Основы</a>
+      <a href="comfyui.html">ComfyUI</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- Hero -->
+  <div class="basics-hero">
+    <div class="basics-hero-label">Для новичков</div>
+    <h1>Что такое нейросети<br>и как они работают</h1>
+    <p>Объясняем с нуля: история, принципы работы, токены, ChatGPT и куда всё это движется. Без формул и технического жаргона.</p>
+    <div class="basics-hero-nav">
+      <a href="#what">Что это такое</a>
+      <a href="#history">История</a>
+      <a href="#how">Как работает</a>
+      <a href="#tokens">Токены</a>
+      <a href="#breakthrough">Прорыв</a>
+      <a href="#now">Сейчас</a>
+      <a href="#future">Перспективы</a>
+    </div>
+  </div>
+
+  <!-- Что такое нейросеть -->
+  <section class="basics-section" id="what">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 1</div>
+      <h2>Что такое нейросеть</h2>
+
+      <p class="lead">Нейросеть — это программа, которая учится на примерах, а не на правилах.</p>
+
+      <p>Обычные программы работают по чётким инструкциям: «если A, то B». Программист заранее описывает каждый случай. Нейросеть устроена иначе: ей показывают миллионы примеров, и она сама находит закономерности.</p>
+
+      <div class="analogy-box">
+        <div class="analogy-icon">🧠</div>
+        <div>
+          <strong>Аналогия с мозгом</strong>
+          <p>Наш мозг содержит ~86 миллиардов нейронов, связанных между собой. Когда мы учимся чему-то новому — связи между нейронами укрепляются или ослабевают. Именно так мозг «запоминает».</p>
+          <p>Искусственная нейросеть — это математическая имитация этой идеи. Вместо настоящих нейронов — числа и формулы, вместо синапсов — «веса» (числа, которые меняются в процессе обучения).</p>
+        </div>
+      </div>
+
+      <p>Важная оговорка: несмотря на слово «мозг» в аналогии, нейросети <em>не думают</em> и <em>не понимают</em> в человеческом смысле. Они очень хорошо находят паттерны (закономерности) в данных — и умеют применять найденные паттерны к новым ситуациям. Это мощно, но принципиально отличается от человеческого сознания.</p>
+
+      <div class="key-points">
+        <div class="key-point">
+          <span class="kp-icon">📊</span>
+          <div><strong>Обучение на данных</strong><br>Нейросеть учится на огромных наборах данных: тексты, изображения, аудио, видео.</div>
+        </div>
+        <div class="key-point">
+          <span class="kp-icon">🎯</span>
+          <div><strong>Поиск паттернов</strong><br>В процессе обучения модель находит скрытые закономерности, которые не видны человеку.</div>
+        </div>
+        <div class="key-point">
+          <span class="kp-icon">🔮</span>
+          <div><strong>Предсказание</strong><br>На основе паттернов модель делает предсказания: какой текст написать, какое изображение сгенерировать.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- История -->
+  <section class="basics-section basics-section-alt" id="history">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 2</div>
+      <h2>История: от идеи до ChatGPT</h2>
+      <p class="lead">Нейросети изобрели ещё в 1940-х — но прорыв случился только 80 лет спустя. Вот почему.</p>
+
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-year">1943</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>Рождение идеи</h3>
+            <p>Нейрофизиолог Уоррен Маккалок и математик Уолтер Питтс публикуют статью с первой математической моделью нейрона. Они показали, что простые логические операции можно реализовать через нейроноподобные элементы. Это чисто теоретическая работа — никаких компьютеров ещё нет.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1957</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>Перцептрон</h3>
+            <p>Фрэнк Розенблатт создаёт первую обучающуюся нейросеть — перцептрон. Это физическое устройство размером с комнату, которое умело различать простые образы. Газеты писали: «Машина, способная думать!» — но вскоре оказалось, что перцептрон сильно ограничен.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1969</div>
+          <div class="tl-dot tl-dot-dark"></div>
+          <div class="tl-content">
+            <h3>Первая «зима ИИ»</h3>
+            <p>Минский и Пейперт доказали математические ограничения перцептрона. Финансирование иссякло, интерес упал. Наступила «зима ИИ» — период застоя, который продлился больше десяти лет.</p>
+            <div class="tl-badge tl-badge-dark">Застой</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1986</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>Обратное распространение ошибки</h3>
+            <p>Джефри Хинтон и коллеги популяризируют алгоритм backpropagation — способ обучать многослойные нейросети. Это ключевое изобретение, на котором держится всё современное глубокое обучение. Хинтон получит Нобелевскую премию в 2024 году.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1990-е</div>
+          <div class="tl-dot tl-dot-dark"></div>
+          <div class="tl-content">
+            <h3>Вторая «зима ИИ»</h3>
+            <p>Нейросети работают, но обучать их слишком долго и дорого. Компьютеры недостаточно мощны, данных не хватает. Снова застой. Многие учёные переключаются на другие методы.</p>
+            <div class="tl-badge tl-badge-dark">Застой</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2006</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <h3>Глубокое обучение</h3>
+            <p>Хинтон снова — теперь он показывает, как эффективно обучать очень глубокие (многослойные) сети. Термин «deep learning» входит в употребление. Начинается медленный, но уверенный ренессанс.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2012</div>
+          <div class="tl-dot tl-dot-bright"></div>
+          <div class="tl-content">
+            <h3>ImageNet — первый большой прорыв</h3>
+            <p>Нейросеть AlexNet выигрывает конкурс по распознаванию изображений ImageNet с огромным отрывом от конкурентов. Ключевую роль сыграло использование видеокарт (GPU) для обучения — это ускорило процесс в десятки раз. Мир понял, что нейросети — это всерьёз.</p>
+            <div class="tl-badge tl-badge-bright">Прорыв!</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2017</div>
+          <div class="tl-dot tl-dot-bright"></div>
+          <div class="tl-content">
+            <h3>Трансформеры: «Attention is All You Need»</h3>
+            <p>Исследователи Google публикуют статью, которая изменила всё. Они предложили архитектуру Transformer — новый способ устройства нейросети для работы с текстом. Именно на трансформерах построены ChatGPT, Claude, Gemini и большинство современных моделей.</p>
+            <div class="tl-badge tl-badge-bright">Революция</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2020</div>
+          <div class="tl-dot tl-dot-bright"></div>
+          <div class="tl-content">
+            <h3>GPT-3: масштаб меняет всё</h3>
+            <p>OpenAI выпускает GPT-3 — модель с 175 миллиардами параметров. Внезапно оказалось: если просто увеличить нейросеть и дать ей больше данных, она начинает уметь вещи, которым её никто не учил. Переводить, писать код, решать задачи — всё это «само появилось» из масштаба.</p>
+            <div class="tl-badge tl-badge-bright">Прорыв!</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2022</div>
+          <div class="tl-dot tl-dot-bright"></div>
+          <div class="tl-content">
+            <h3>ChatGPT: ИИ для всех</h3>
+            <p>30 ноября 2022 года OpenAI открывает ChatGPT для широкой публики. За 5 дней — миллион пользователей. За 2 месяца — 100 миллионов. Рекорд в истории интернет-сервисов. Именно этот момент большинство называет «прорывом» — хотя технически всё началось раньше.</p>
+            <div class="tl-badge tl-badge-bright">Момент взрыва</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2024–25</div>
+          <div class="tl-dot tl-dot-bright"></div>
+          <div class="tl-content">
+            <h3>Эра агентов и мультимодальности</h3>
+            <p>Модели научились видеть, слышать и говорить. Появились AI-агенты — нейросети, которые не просто отвечают, а сами выполняют задачи: ищут в интернете, пишут и запускают код, управляют браузером. Гонка между лабораториями ускоряется.</p>
+            <div class="tl-badge tl-badge-bright">Сейчас</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Как работает -->
+  <section class="basics-section" id="how">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 3</div>
+      <h2>Как работает языковая модель</h2>
+      <p class="lead">GPT, Claude, Gemini — всё это языковые модели. Как именно они «думают»?</p>
+
+      <p>Если коротко: языковая модель обучена предсказывать следующий токен (кусочек текста). Это звучит тривиально, но из этой простой задачи вырастает удивительно умное поведение.</p>
+
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-body">
+            <h3>Сбор данных</h3>
+            <p>Для обучения нужны огромные объёмы текста. GPT-3 учился на ~570 гигабайтах текста — это примерно всё содержимое Википедии, умноженное на несколько сотен. Книги, сайты, форумы, код, научные статьи — всё это входит в обучающую выборку.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-body">
+            <h3>Обучение: угадай следующее слово</h3>
+            <p>Модель видит текст с «дыркой» в конце и учится угадывать, что там должно стоять. Например: «Кошка сидела на…» → «коврике». Это делается триллионы раз. Постепенно модель начинает понимать синтаксис, факты о мире, логические связи — потому что всё это необходимо для правильного предсказания.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-body">
+            <h3>Веса: «память» модели</h3>
+            <p>Всё, чему научилась модель, хранится в «весах» — миллиардах чисел внутри нейросети. GPT-4 имеет предположительно ~1.8 триллиона параметров. Это и есть «знания» модели — упакованные в числа закономерности из обучающих данных.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-num">4</div>
+          <div class="how-step-body">
+            <h3>Инструкции: RLHF</h3>
+            <p>Сырая языковая модель умеет генерировать текст, но не умеет быть полезным ассистентом. Поэтому её дообучают: живые люди-оценщики смотрят на ответы и голосуют, какой лучше. Так модель учится быть полезной, безопасной и следовать инструкциям.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="analogy-box">
+        <div class="analogy-icon">📚</div>
+        <div>
+          <strong>Почему это так хорошо работает?</strong>
+          <p>Чтобы правильно предсказать следующее слово, модели нужно понимать контекст, грамматику, факты, логику, стиль, намерение автора. Это называется «emergent behavior» (эмерджентное поведение) — сложные способности возникают как побочный эффект от простой задачи предсказания.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Токены -->
+  <section class="basics-section basics-section-alt" id="tokens">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 4</div>
+      <h2>Что такое токены</h2>
+      <p class="lead">Токен — это базовая единица, с которой работает языковая модель. Не слово, не буква, а что-то среднее.</p>
+
+      <p>Нейросеть не читает текст побуквенно и не разбивает его на слова. Она работает с токенами — фрагментами текста, которые получились в результате специального алгоритма разбивки (токенизации).</p>
+
+      <div class="token-demo">
+        <div class="token-demo-label">Как текст разбивается на токены:</div>
+        <div class="token-examples">
+          <div class="token-example">
+            <div class="token-text">Привет</div>
+            <div class="token-arrow">→</div>
+            <div class="tokens-row">
+              <span class="token t1">При</span><span class="token t2">вет</span>
+            </div>
+            <div class="token-count">2 токена</div>
+          </div>
+          <div class="token-example">
+            <div class="token-text">Hello world</div>
+            <div class="token-arrow">→</div>
+            <div class="tokens-row">
+              <span class="token t3">Hello</span><span class="token t4"> world</span>
+            </div>
+            <div class="token-count">2 токена</div>
+          </div>
+          <div class="token-example">
+            <div class="token-text">нейросеть</div>
+            <div class="token-arrow">→</div>
+            <div class="tokens-row">
+              <span class="token t1">ней</span><span class="token t2">рос</span><span class="token t3">еть</span>
+            </div>
+            <div class="token-count">3 токена</div>
+          </div>
+          <div class="token-example">
+            <div class="token-text">AI</div>
+            <div class="token-arrow">→</div>
+            <div class="tokens-row">
+              <span class="token t4">AI</span>
+            </div>
+            <div class="token-count">1 токен</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-icon">📏</div>
+          <h3>Правило 4/3</h3>
+          <p>В среднем: 1 токен ≈ 4 символа на английском и ≈ 3 символа на русском (русский «дороже» из-за кириллицы).</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🪟</div>
+          <h3>Контекстное окно</h3>
+          <p>Модель может обрабатывать ограниченное количество токенов за раз. Claude — 200K токенов (примерно 500 страниц текста), Gemini — 1M токенов.</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">💰</div>
+          <h3>Токены и цена</h3>
+          <p>API моделей оплачивается за токены. Например: $3 за миллион входящих токенов у GPT-4o. Чем длиннее диалог — тем дороже.</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🔄</div>
+          <h3>Генерация по одному</h3>
+          <p>Модель генерирует текст токен за токеном, каждый раз «смотрит» на всё написанное раньше. Именно поэтому ответ появляется постепенно, а не сразу.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Прорыв: трансформеры -->
+  <section class="basics-section" id="breakthrough">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 5</div>
+      <h2>Почему трансформеры изменили всё</h2>
+      <p class="lead">До 2017 года нейросети плохо работали с длинными текстами. Трансформеры решили эту проблему элегантным способом.</p>
+
+      <p>Главная идея трансформеров называется <strong>механизм внимания (attention)</strong>. Когда модель обрабатывает слово, она «смотрит» на все остальные слова в тексте и решает, какие из них важны для понимания этого слова.</p>
+
+      <div class="analogy-box">
+        <div class="analogy-icon">👁️</div>
+        <div>
+          <strong>Пример: местоимение</strong>
+          <p>«Трофей не вошёл в чемодан, потому что он был слишком большим.»</p>
+          <p>Слово «он» — это трофей или чемодан? Человек легко понимает, что «он» = «трофей», потому что смотрит на весь контекст. Механизм внимания делает то же самое: для слова «он» он «обращает внимание» на «трофей», «чемодан» и «большим», чтобы разобраться.</p>
+        </div>
+      </div>
+
+      <div class="breakthrough-facts">
+        <div class="bf-item">
+          <span class="bf-num">8</span>
+          <span class="bf-label">исследователей Google написали статью «Attention is All You Need» в 2017 году</span>
+        </div>
+        <div class="bf-item">
+          <span class="bf-num">175B</span>
+          <span class="bf-label">параметров у GPT-3 — в 2020 году это казалось невообразимым масштабом</span>
+        </div>
+        <div class="bf-item">
+          <span class="bf-num">5 дней</span>
+          <span class="bf-label">понадобилось ChatGPT чтобы набрать миллион пользователей в ноябре 2022</span>
+        </div>
+        <div class="bf-item">
+          <span class="bf-num">~$100M</span>
+          <span class="bf-label">стоит обучение одной большой языковой модели уровня GPT-4</span>
+        </div>
+      </div>
+
+      <p>Помимо архитектуры, прорыв стал возможен благодаря трём вещам, которые совпали во времени: <strong>данные</strong> (весь интернет), <strong>вычисления</strong> (мощные GPU от NVIDIA) и <strong>алгоритмы</strong> (трансформеры + RLHF). Убери любой из трёх — и ничего бы не вышло.</p>
+    </div>
+  </section>
+
+  <!-- Сейчас -->
+  <section class="basics-section basics-section-alt" id="now">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 6</div>
+      <h2>Что умеют нейросети сейчас</h2>
+      <p class="lead">За два года после ChatGPT возможности выросли настолько, что это трудно осознать.</p>
+
+      <div class="capabilities-grid">
+        <div class="capability-card">
+          <div class="cap-icon">💬</div>
+          <h3>Текст и разговор</h3>
+          <p>Пишут тексты, резюме, письма, посты. Отвечают на вопросы. Объясняют сложное. Переводят. Редактируют и улучшают написанное. Ведут диалог часами.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">💻</div>
+          <h3>Программирование</h3>
+          <p>Пишут код на десятках языков. Находят и исправляют баги. Объясняют чужой код. Предлагают архитектуру. Cursor и GitHub Copilot заменяют джуниора.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">🎨</div>
+          <h3>Изображения</h3>
+          <p>Midjourney, Flux, Stable Diffusion — генерируют фото и арт по описанию. Редактируют существующие изображения. Убирают фон. Создают иллюстрации и логотипы.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">🎵</div>
+          <h3>Музыка и голос</h3>
+          <p>Suno и Udio делают полноценные песни с вокалом по текстовому описанию. ElevenLabs клонирует голос по 30 секундам записи.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">🎬</div>
+          <h3>Видео</h3>
+          <p>Sora, Runway, Kling генерируют видео из текста или изображения. Пока короткие, но качество растёт каждый квартал.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">🔭</div>
+          <h3>Наука и исследования</h3>
+          <p>AlphaFold 2 от DeepMind предсказал структуру ~200 миллионов белков — это больше, чем человечество накопило за всю историю биологии. ИИ уже помогает разрабатывать лекарства.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">🤖</div>
+          <h3>Агенты</h3>
+          <p>Новое поколение: ИИ не просто отвечает, а действует. Сам ищет информацию, открывает браузер, пишет и запускает код, отправляет письма, управляет файлами.</p>
+        </div>
+        <div class="capability-card">
+          <div class="cap-icon">👁️</div>
+          <h3>Зрение и мультимодальность</h3>
+          <p>GPT-4o, Claude и Gemini «видят» изображения — описывают фото, читают текст с картинок, анализируют графики и схемы. Gemini умеет смотреть видео в реальном времени.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ограничения -->
+  <section class="basics-section" id="limits">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Важно знать</div>
+      <h2>Ограничения и проблемы</h2>
+      <p class="lead">Нейросети — мощный инструмент, но у них есть важные ограничения, о которых нужно знать.</p>
+
+      <div class="limits-list">
+        <div class="limit-item">
+          <div class="limit-icon">🎭</div>
+          <div>
+            <h3>Галлюцинации</h3>
+            <p>Языковые модели иногда уверенно выдают неверную информацию — придумывают несуществующие факты, книги, исследования. Это называют «галлюцинациями». Всегда проверяй важные факты из AI в независимых источниках.</p>
+          </div>
+        </div>
+        <div class="limit-item">
+          <div class="limit-icon">📅</div>
+          <div>
+            <h3>Дата знаний</h3>
+            <p>У каждой модели есть «дата отсечения» — момент, после которого она не знает новостей. ChatGPT, Claude и другие не знают о событиях, произошедших после даты их обучения (если нет доступа к интернету).</p>
+          </div>
+        </div>
+        <div class="limit-item">
+          <div class="limit-icon">🔢</div>
+          <div>
+            <h3>Математика и логика</h3>
+            <p>Языковые модели плохо считают. Они работают с паттернами текста, а не с числами. Сложные вычисления или многошаговые логические задачи — частый источник ошибок. Для математики лучше использовать Code Interpreter.</p>
+          </div>
+        </div>
+        <div class="limit-item">
+          <div class="limit-icon">🪞</div>
+          <div>
+            <h3>Нет самосознания</h3>
+            <p>Когда ChatGPT говорит «я думаю» или «мне интересно» — это не буквально. Модель воспроизводит паттерны человеческой речи. У неё нет реального опыта, эмоций или самосознания в человеческом смысле.</p>
+          </div>
+        </div>
+        <div class="limit-item">
+          <div class="limit-icon">⚡</div>
+          <div>
+            <h3>Энергопотребление</h3>
+            <p>Обучение и эксплуатация больших моделей требует огромного количества электроэнергии. Один запрос к GPT-4 потребляет примерно в 10 раз больше энергии, чем обычный поиск в Google.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Перспективы -->
+  <section class="basics-section basics-section-alt" id="future">
+    <div class="basics-section-inner">
+      <div class="section-eyebrow">Глава 7</div>
+      <h2>Куда всё движется</h2>
+      <p class="lead">Никто не знает точно — но вот что происходит прямо сейчас и о чём говорят эксперты.</p>
+
+      <div class="future-grid">
+        <div class="future-card future-now">
+          <div class="future-label">Уже происходит</div>
+          <h3>🤖 Эпоха агентов</h3>
+          <p>ИИ-агенты выполняют многошаговые задачи самостоятельно: исследуют, планируют, действуют. Уже сейчас можно сказать «сделай мне сайт» и получить готовый результат без написания кода.</p>
+        </div>
+        <div class="future-card future-near">
+          <div class="future-label">Ближайшие 1–3 года</div>
+          <h3>🏭 ИИ в каждом инструменте</h3>
+          <p>Photoshop, Word, Excel, Gmail — всё уже получает встроенный ИИ. Вопрос не в том, будет ли он у каждого инструмента, а в том, насколько хорошим он станет.</p>
+        </div>
+        <div class="future-card future-mid">
+          <div class="future-label">3–10 лет</div>
+          <h3>🔬 Революция в науке</h3>
+          <p>AlphaFold уже показал, что ИИ может сделать прорыв в биологии. Разработка лекарств, открытие новых материалов, климатическое моделирование — эти области уже меняются быстрее, чем раньше.</p>
+        </div>
+        <div class="future-card future-unknown">
+          <div class="future-label">Открытый вопрос</div>
+          <h3>🧠 AGI</h3>
+          <p>AGI (Artificial General Intelligence) — ИИ, способный решать любые задачи не хуже человека. Одни эксперты говорят «5 лет», другие — «никогда». OpenAI и Anthropic открыто называют AGI своей целью. Никто точно не знает, что будет дальше.</p>
+        </div>
+      </div>
+
+      <div class="analogy-box" style="margin-top:2rem">
+        <div class="analogy-icon">💡</div>
+        <div>
+          <strong>Главное, что стоит помнить</strong>
+          <p>ИИ — это инструмент. Как молоток или интернет. Он усиливает возможности человека, но не заменяет его полностью. Люди, которые умеют работать с ИИ, будут иметь огромное преимущество перед теми, кто его игнорирует. Именно поэтому стоит разбираться в теме — не чтобы стать программистом, а чтобы понимать, какие инструменты использовать и как.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
