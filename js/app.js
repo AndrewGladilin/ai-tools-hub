@@ -2,6 +2,7 @@ let allTools = [];
 let selected = [];
 let activeFilter = 'all';
 let searchQuery = '';
+let expanded = new Set();
 
 const TAG_LABELS = { text: 'Текст', image: 'Изображения', video: 'Видео', audio: 'Аудио', code: 'Код' };
 const TAG_DOTS   = { text: '#378ADD', image: '#639922', video: '#BA7517', audio: '#D4537E', code: '#7F77DD' };
@@ -41,34 +42,52 @@ function render() {
 
   grid.innerHTML = tools.map(t => {
     const isSel = selected.includes(t.id);
+    const isExp = expanded.has(t.id);
     return `
     <div class="tool-card ${isSel ? 'selected' : ''}" data-id="${t.id}">
-      <div class="select-indicator">${isSel ? '✓' : ''}</div>
-      <div class="tool-header">
-        <div class="tool-emoji">${t.emoji}</div>
-        <div>
-          <div class="tool-name">${t.name}</div>
-          <div class="tool-maker">${t.maker}</div>
+      <div class="select-indicator" title="Добавить к сравнению">${isSel ? '✓' : '+'}</div>
+      <div class="tool-card-body">
+        <div class="tool-header">
+          <div class="tool-emoji">${t.emoji}</div>
+          <div>
+            <div class="tool-name">${t.name}</div>
+            <div class="tool-maker">${t.maker}</div>
+          </div>
         </div>
-      </div>
-      <div class="tool-desc">${t.description}</div>
-      <div class="tool-tags">
-        ${t.tags.map(tag => `<span class="tag tag-${tag}">${TAG_LABELS[tag]}</span>`).join('')}
-      </div>
-      <div class="tool-footer">
-        <span class="price">${t.price}</span>
-        ${t.free ? '<span class="free-badge">Free tier</span>' : ''}
+        <div class="tool-desc ${isExp ? 'expanded' : ''}">${t.description}</div>
+        ${!isExp ? `<span class="desc-more">ещё ▾</span>` : `<span class="desc-more expanded">свернуть ▴</span>`}
+        <div class="tool-tags">
+          ${t.tags.map(tag => `<span class="tag tag-${tag}">${TAG_LABELS[tag]}</span>`).join('')}
+        </div>
+        <div class="tool-footer">
+          <span class="price">${t.price}</span>
+          ${t.free ? '<span class="free-badge">Free tier</span>' : ''}
+        </div>
       </div>
     </div>`;
   }).join('');
 
   grid.querySelectorAll('.tool-card').forEach(el => {
-    el.addEventListener('click', e => {
-      if (e.target.closest('.visit-link')) return;
-      const id = el.dataset.id;
+    const id = el.dataset.id;
+
+    el.querySelector('.select-indicator').addEventListener('click', e => {
+      e.stopPropagation();
       toggleSelect(id);
     });
+
+    el.querySelector('.tool-card-body').addEventListener('click', () => {
+      toggleExpand(id);
+    });
   });
+}
+
+function toggleExpand(id) {
+  if (expanded.has(id)) {
+    expanded.delete(id);
+  } else {
+    expanded.add(id);
+  }
+  render();
 }
 
 function toggleSelect(id) {
@@ -148,7 +167,6 @@ function showNotice(msg) {
 }
 
 function bindEvents() {
-  // Filters
   document.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => {
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
@@ -158,16 +176,13 @@ function bindEvents() {
     });
   });
 
-  // Search
   document.getElementById('search').addEventListener('input', e => {
     searchQuery = e.target.value;
     render();
   });
 
-  // Compare button
   document.getElementById('btn-compare').addEventListener('click', buildCompareTable);
 
-  // Clear selection
   document.getElementById('btn-clear').addEventListener('click', () => {
     selected = [];
     render();
