@@ -238,11 +238,12 @@
     "url": "https://firefly.adobe.com",
     "tags": ["image", "video"],
     "description": "ИИ-генератор от Adobe, обученный на лицензированных изображениях. Безопасен для коммерческого использования.",
-    "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $5 в мес",
+    "free": false, "api": false, "ru": false,
+    "price": "$10 / $20 / от $50 в мес",
     "plans": [
-      { "name": "Free", "price": "$0/мес" },
-      { "name": "Premium", "price": "$5/мес" }
+      { "name": "Standard", "price": "$10/мес" },
+      { "name": "Pro", "price": "$20/мес" },
+      { "name": "Premium", "price": "от $50/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
