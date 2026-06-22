@@ -259,9 +259,9 @@
     "price": "Бесплатно / $12 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Apprentice", "price": "$12/мес" },
-      { "name": "Artisan", "price": "$30/мес" },
-      { "name": "Maestro", "price": "$60/мес" }
+      { "name": "Essential", "price": "$12/мес" },
+      { "name": "Premium", "price": "$30/мес" },
+      { "name": "Ultimate", "price": "$60/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2022"
   },
