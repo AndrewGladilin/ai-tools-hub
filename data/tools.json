@@ -274,12 +274,12 @@
     "tags": ["video"],
     "description": "Профессиональный инструмент для генерации видео. Используется в Голливуде и рекламной индустрии.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $15 в мес",
+    "price": "Бесплатно / $12 / $28 / $76 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Standard", "price": "$15/мес" },
-      { "name": "Pro", "price": "$35/мес" },
-      { "name": "Unlimited", "price": "$95/мес" }
+      { "name": "Standard", "price": "$12/мес" },
+      { "name": "Pro", "price": "$28/мес" },
+      { "name": "Max", "price": "$76/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
