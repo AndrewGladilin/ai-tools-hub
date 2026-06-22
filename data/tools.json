@@ -292,11 +292,12 @@
     "tags": ["video"],
     "description": "Китайский генератор видео с реалистичной физикой движения. Бесплатный план с хорошим качеством.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $10 в мес",
+    "price": "Бесплатно / $10 / $37 / $92 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Starter", "price": "$10/мес" },
-      { "name": "Pro", "price": "$35/мес" }
+      { "name": "Standard", "price": "$10/мес" },
+      { "name": "Pro", "price": "$37/мес" },
+      { "name": "Premier", "price": "$92/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
