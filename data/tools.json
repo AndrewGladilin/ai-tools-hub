@@ -222,11 +222,11 @@
     "tags": ["image"],
     "description": "Генератор изображений, который умеет правильно рендерить текст внутри картинки — редкое умение среди AI.",
     "free": true, "api": true, "ru": false,
-    "price": "Бесплатно / $8 в мес",
+    "price": "Бесплатно / $15 / $42 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Basic", "price": "$8/мес" },
-      { "name": "Plus", "price": "$20/мес" }
+      { "name": "Plus", "price": "$15/мес" },
+      { "name": "Pro", "price": "$42/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
