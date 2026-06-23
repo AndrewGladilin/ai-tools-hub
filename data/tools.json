@@ -513,10 +513,11 @@
     "tags": ["text"],
     "description": "ИИ-поисковик, который отвечает на вопросы со ссылками на источники в реальном времени.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / $20 в мес",
+    "price": "Бесплатно / $17 / $167 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Pro", "price": "$20/мес" }
+      { "name": "Pro", "price": "$17/мес" },
+      { "name": "Max", "price": "$167/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2022"
   },
