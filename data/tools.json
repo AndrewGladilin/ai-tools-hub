@@ -410,12 +410,12 @@
     "url": "https://mubert.com",
     "tags": ["audio"],
     "description": "Генерирует роялти-фри фоновую музыку под любое настроение и темп. Удобен для видеоблогеров.",
-    "free": true, "api": true, "ru": false,
-    "price": "Бесплатно / $14 в мес",
+    "free": false, "api": true, "ru": false,
+    "price": "$14 / $39 / $199 в мес",
     "plans": [
-      { "name": "Free", "price": "$0/мес" },
-      { "name": "Ambassador", "price": "$14/мес" },
-      { "name": "Artist", "price": "$39/мес" }
+      { "name": "Creator", "price": "$14/мес" },
+      { "name": "Pro", "price": "$39/мес" },
+      { "name": "Business", "price": "$199/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2021"
   },
