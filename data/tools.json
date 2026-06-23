@@ -615,11 +615,11 @@
     "tags": ["video"],
     "description": "Создаёт видео с реалистичными ИИ-аватарами. Умеет переводить видео с синхронизацией губ на другой язык.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / $29 в мес",
+    "price": "Бесплатно / $29 / $49 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
       { "name": "Creator", "price": "$29/мес" },
-      { "name": "Business", "price": "$89/мес" }
+      { "name": "Pro", "price": "$49/мес" }
     ],
     "context": "—", "multimodal": false, "voice": true, "web": true, "released": "2022"
   },
