@@ -393,10 +393,10 @@
     "tags": ["audio"],
     "description": "Лучший инструмент для синтеза и клонирования голоса. Поддерживает русский язык.",
     "free": true, "api": true, "ru": true,
-    "price": "Бесплатно / $5 в мес",
+    "price": "Бесплатно / $6 / $22 / $99 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Starter", "price": "$5/мес" },
+      { "name": "Starter", "price": "$6/мес" },
       { "name": "Creator", "price": "$22/мес" },
       { "name": "Pro", "price": "$99/мес" }
     ],
