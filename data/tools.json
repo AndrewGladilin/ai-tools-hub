@@ -562,12 +562,12 @@
     "tags": ["video"],
     "description": "Генератор видео с простым интерфейсом и функцией анимации существующих фотографий.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $8 в мес",
+    "price": "Бесплатно / $10 / $35 / $95 в мес",
     "plans": [
-      { "name": "Free", "price": "$0/мес" },
-      { "name": "Basic", "price": "$8/мес" },
-      { "name": "Standard", "price": "$28/мес" },
-      { "name": "Pro", "price": "$58/мес" }
+      { "name": "Basic", "price": "$0/мес" },
+      { "name": "Standard", "price": "$10/мес" },
+      { "name": "Pro", "price": "$35/мес" },
+      { "name": "Fancy", "price": "$95/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2023"
   },
