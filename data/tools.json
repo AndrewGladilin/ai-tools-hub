@@ -466,8 +466,8 @@
     "price": "Бесплатно / $20 в мес",
     "plans": [
       { "name": "Hobby", "price": "$0/мес" },
-      { "name": "Pro", "price": "$20/мес" },
-      { "name": "Business", "price": "$40/мес" }
+      { "name": "Individual", "price": "$20/мес" },
+      { "name": "Teams", "price": "$40/мес" }
     ],
     "context": "200K", "multimodal": false, "voice": false, "web": false, "released": "2023"
   },
