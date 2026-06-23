@@ -598,11 +598,11 @@
     "tags": ["image", "video", "text"],
     "description": "Дизайн-платформа со встроенными ИИ-инструментами: генерация изображений, удаление фона, ИИ-текст и многое другое.",
     "free": true, "api": false, "ru": true,
-    "price": "Бесплатно / $15 в мес",
+    "price": "Бесплатно / $18 / $20 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Pro", "price": "$15/мес" },
-      { "name": "Teams", "price": "$10/мес за чел." }
+      { "name": "Pro", "price": "$18/мес" },
+      { "name": "Business", "price": "$20/мес" }
     ],
     "context": "—", "multimodal": true, "voice": false, "web": true, "released": "2023"
   },
