@@ -340,11 +340,13 @@
     "tags": ["video"],
     "description": "Китайский генератор видео с реалистичными движениями людей и хорошим бесплатным планом.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $9 в мес",
+    "price": "Бесплатно / $10 / $35 / $80 / $200 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Basic", "price": "$9/мес" },
-      { "name": "Pro", "price": "$29/мес" }
+      { "name": "Standard", "price": "$10/мес" },
+      { "name": "Pro", "price": "$35/мес" },
+      { "name": "Master", "price": "$80/мес" },
+      { "name": "Max", "price": "$200/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
