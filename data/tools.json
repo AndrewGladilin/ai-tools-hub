@@ -473,18 +473,18 @@
   },
   {
     "id": "windsurf",
-    "name": "Windsurf",
-    "maker": "Codeium",
-    "emoji": "🏄",
-    "url": "https://windsurf.com",
+    "name": "Devin",
+    "maker": "Cognition AI",
+    "emoji": "🤖",
+    "url": "https://devin.ai",
     "tags": ["code"],
-    "description": "ИИ-редактор от Codeium с функцией Cascade — агент сам планирует и выполняет многошаговые задачи по коду.",
+    "description": "ИИ-агент для программирования от Cognition AI (бывший Windsurf). Самостоятельно планирует и выполняет многошаговые задачи по коду.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $15 в мес",
+    "price": "Бесплатно / $20 / $200 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Pro", "price": "$15/мес" },
-      { "name": "Teams", "price": "$30/мес" }
+      { "name": "Pro", "price": "$20/мес" },
+      { "name": "Max", "price": "$200/мес" }
     ],
     "context": "200K", "multimodal": false, "voice": false, "web": false, "released": "2024"
   },
