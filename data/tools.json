@@ -530,10 +530,10 @@
     "tags": ["text", "audio"],
     "description": "ИИ-инструмент для работы с документами. Умеет превращать любые материалы в подкаст с двумя ведущими.",
     "free": true, "api": false, "ru": true,
-    "price": "Бесплатно",
+    "price": "Бесплатно / $20 в мес",
     "plans": [
-      { "name": "Free", "price": "Бесплатно" },
-      { "name": "Plus", "price": "Через Google One AI" }
+      { "name": "Free", "price": "$0/мес" },
+      { "name": "NotebookLM Pro", "price": "$20/мес" }
     ],
     "context": "1M", "multimodal": false, "voice": true, "web": true, "released": "2023"
   },
