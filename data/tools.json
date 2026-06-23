@@ -376,11 +376,11 @@
     "tags": ["audio"],
     "description": "Конкурент Suno с акцентом на высокое качество звука и разнообразие музыкальных стилей.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $12 в мес",
+    "price": "Бесплатно / $10 / $30 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
-      { "name": "Standard", "price": "$12/мес" },
-      { "name": "Pro", "price": "$24/мес" }
+      { "name": "Standard", "price": "$10/мес" },
+      { "name": "Pro", "price": "$30/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": true, "released": "2024"
   },
