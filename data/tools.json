@@ -496,12 +496,11 @@
     "url": "https://tabnine.com",
     "tags": ["code"],
     "description": "ИИ-автодополнение кода с акцентом на приватность. Можно развернуть полностью локально без отправки кода в облако.",
-    "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $12 в мес",
+    "free": false, "api": false, "ru": false,
+    "price": "$39 / $59 в мес (годовая)",
     "plans": [
-      { "name": "Free", "price": "$0/мес" },
-      { "name": "Dev", "price": "$12/мес" },
-      { "name": "Enterprise", "price": "По запросу" }
+      { "name": "Code Assistant", "price": "$39/мес" },
+      { "name": "Agentic Platform", "price": "$59/мес" }
     ],
     "context": "—", "multimodal": false, "voice": false, "web": false, "released": "2018"
   },
