@@ -632,11 +632,11 @@
     "tags": ["audio", "video"],
     "description": "Редактор видео и подкастов с ИИ: монтаж через редактирование текста, удаление слов-паразитов, клонирование голоса.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $24 в мес",
+    "price": "Бесплатно / $24 / $35 / $65 в мес",
     "plans": [
-      { "name": "Free", "price": "$0/мес" },
       { "name": "Hobbyist", "price": "$24/мес" },
-      { "name": "Creator", "price": "$40/мес" }
+      { "name": "Creator", "price": "$35/мес" },
+      { "name": "Business", "price": "$65/мес" }
     ],
     "context": "—", "multimodal": false, "voice": true, "web": true, "released": "2017"
   }
