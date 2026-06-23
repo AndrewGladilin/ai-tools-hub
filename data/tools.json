@@ -445,11 +445,12 @@
     "tags": ["code"],
     "description": "ИИ-помощник для программирования, встроенный в VS Code и другие IDE. Автодополнение и генерация кода.",
     "free": true, "api": false, "ru": false,
-    "price": "Бесплатно / $10 в мес",
+    "price": "Бесплатно / $10 / $39 / $100 в мес",
     "plans": [
       { "name": "Free", "price": "$0/мес" },
       { "name": "Pro", "price": "$10/мес" },
-      { "name": "Business", "price": "$19/мес" }
+      { "name": "Pro+", "price": "$39/мес" },
+      { "name": "Max", "price": "$100/мес" }
     ],
     "context": "64K", "multimodal": false, "voice": false, "web": false, "released": "2021"
   },
