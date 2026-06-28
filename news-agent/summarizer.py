@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 class NewsDigestSummarizer:
     def __init__(self, groq_api_key: str):
         self.client = Groq(api_key=groq_api_key)
-        self.model = "llama3-8b-8192"
+        self.model = "llama-3.1-8b-instant"
 
     def summarize_article(self, title: str, url: str) -> str:
         """Generate a one-line summary for an article using Groq"""
