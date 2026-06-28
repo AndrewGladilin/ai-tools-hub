@@ -7,12 +7,12 @@ logger = logging.getLogger(__name__)
 class NewsDigestSummarizer:
     def __init__(self, groq_api_key: str):
         self.client = Groq(api_key=groq_api_key)
-        self.model = "mixtral-8x7b-32768"
+        self.model = "llama3-8b-8192"
 
     def summarize_article(self, title: str, url: str) -> str:
         """Generate a one-line summary for an article using Groq"""
         try:
-            message = self.client.messages.create(
+            message = self.client.chat.completions.create(
                 model=self.model,
                 max_tokens=100,
                 messages=[
@@ -26,7 +26,7 @@ URL: {url}
                     }
                 ]
             )
-            return message.content[0].text.strip()
+            return message.choices[0].message.content.strip()
         except Exception as e:
             logger.error(f"Error summarizing article: {e}")
             return "..."
