@@ -4,8 +4,9 @@
 
 ## Особенности
 
-- 🌐 **9+ источников новостей**: Habr, HackerNews, ArXiv, Reddit, Medium, TechCrunch, Product Hunt, The Verge, Lobsters
+- 🌐 **9+ источников новостей**: Habr, HackerNews, ArXiv, Anthropic, OpenAI, Medium, TechCrunch, Product Hunt, The Verge, Lobsters
 - 🧠 **Groq LLM для суммирования**: Быстрое и бесплатное суммирование каждой новости
+- 🇷🇺 **Полностью на русском**: Перевод заголовков и суммаризация на русском языке
 - 📱 **Отправка в Telegram**: Красивый дайджест прямо в твой канал
 - ⚙️ **Полностью автоматизировано**: Cron job для ежедневного запуска
 - 💰 **Полностью бесплатно**: Groq API + твой VPS

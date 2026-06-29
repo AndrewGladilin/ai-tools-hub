@@ -29,7 +29,8 @@ class NewsFetcher:
             self.fetch_habr,
             self.fetch_hackernews,
             self.fetch_arxiv,
-            self.fetch_reddit,
+            self.fetch_anthropic,
+            self.fetch_openai,
             self.fetch_product_hunt,
             self.fetch_techcrunch,
             self.fetch_medium,
@@ -106,25 +107,58 @@ class NewsFetcher:
             logger.error(f"ArXiv error: {e}")
         return items
 
-    def fetch_reddit(self) -> List[NewsItem]:
-        """Fetch from Reddit (r/MachineLearning, r/LanguageModels)"""
+    def fetch_anthropic(self) -> List[NewsItem]:
+        """Fetch from Anthropic news"""
         items = []
-        subreddits = ['MachineLearning', 'LanguageModels', 'artificial']
+        url = "https://www.anthropic.com/news"
+        try:
+            response = requests.get(url, timeout=self.timeout)
+            response.encoding = 'utf-8'
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-        for subreddit in subreddits:
-            try:
-                url = f"https://www.reddit.com/r/{subreddit}/new.rss?sort=new"
-                feed = feedparser.parse(url)
-                for entry in feed.entries[:3]:
+            # Look for news/article links
+            for link in soup.find_all('a', href=True):
+                href = link.get('href', '')
+                text = link.get_text(strip=True)
+
+                if '/news' in href and text and len(text) > 10:
+                    full_url = href if href.startswith('http') else f"https://www.anthropic.com{href}"
                     items.append(NewsItem(
-                        title=entry.title,
-                        url=entry.link,
-                        source=f"🔴 Reddit r/{subreddit}",
-                        published=entry.get('published', '')
+                        title=text,
+                        url=full_url,
+                        source="🧠 Anthropic"
                     ))
-            except Exception as e:
-                logger.error(f"Reddit {subreddit} error: {e}")
+                    if len(items) >= 3:
+                        break
+        except Exception as e:
+            logger.error(f"Anthropic error: {e}")
+        return items
 
+    def fetch_openai(self) -> List[NewsItem]:
+        """Fetch from OpenAI news"""
+        items = []
+        url = "https://openai.com/ru-RU/news/company-announcements/"
+        try:
+            response = requests.get(url, timeout=self.timeout)
+            response.encoding = 'utf-8'
+            soup = BeautifulSoup(response.content, 'html.parser')
+
+            # Look for news/article links
+            for link in soup.find_all('a', href=True):
+                href = link.get('href', '')
+                text = link.get_text(strip=True)
+
+                if ('news' in href or 'announcement' in href) and text and len(text) > 10:
+                    full_url = href if href.startswith('http') else f"https://openai.com{href}"
+                    items.append(NewsItem(
+                        title=text,
+                        url=full_url,
+                        source="🚀 OpenAI"
+                    ))
+                    if len(items) >= 3:
+                        break
+        except Exception as e:
+            logger.error(f"OpenAI error: {e}")
         return items
 
     def fetch_product_hunt(self) -> List[NewsItem]:
